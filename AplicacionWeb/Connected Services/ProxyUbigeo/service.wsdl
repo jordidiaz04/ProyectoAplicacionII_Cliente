@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServiceUbigeo" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IServiceUbigeo_obtenerPaises_InputMessage">
+    <wsdl:part name="parameters" element="tns:obtenerPaises" />
+  </wsdl:message>
+  <wsdl:message name="IServiceUbigeo_obtenerPaises_OutputMessage">
+    <wsdl:part name="parameters" element="tns:obtenerPaisesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceUbigeo_obtenerDepartamentos_InputMessage">
+    <wsdl:part name="parameters" element="tns:obtenerDepartamentos" />
+  </wsdl:message>
+  <wsdl:message name="IServiceUbigeo_obtenerDepartamentos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:obtenerDepartamentosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceUbigeo_obtenerProvincias_InputMessage">
+    <wsdl:part name="parameters" element="tns:obtenerProvincias" />
+  </wsdl:message>
+  <wsdl:message name="IServiceUbigeo_obtenerProvincias_OutputMessage">
+    <wsdl:part name="parameters" element="tns:obtenerProvinciasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceUbigeo_obtenerDistritos_InputMessage">
+    <wsdl:part name="parameters" element="tns:obtenerDistritos" />
+  </wsdl:message>
+  <wsdl:message name="IServiceUbigeo_obtenerDistritos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:obtenerDistritosResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IServiceUbigeo">
+    <wsdl:operation name="obtenerPaises">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceUbigeo/obtenerPaises" message="tns:IServiceUbigeo_obtenerPaises_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceUbigeo/obtenerPaisesResponse" message="tns:IServiceUbigeo_obtenerPaises_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerDepartamentos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceUbigeo/obtenerDepartamentos" message="tns:IServiceUbigeo_obtenerDepartamentos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceUbigeo/obtenerDepartamentosResponse" message="tns:IServiceUbigeo_obtenerDepartamentos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerProvincias">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceUbigeo/obtenerProvincias" message="tns:IServiceUbigeo_obtenerProvincias_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceUbigeo/obtenerProvinciasResponse" message="tns:IServiceUbigeo_obtenerProvincias_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerDistritos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceUbigeo/obtenerDistritos" message="tns:IServiceUbigeo_obtenerDistritos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceUbigeo/obtenerDistritosResponse" message="tns:IServiceUbigeo_obtenerDistritos_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IServiceUbigeo" type="tns:IServiceUbigeo">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="obtenerPaises">
+      <soap:operation soapAction="http://tempuri.org/IServiceUbigeo/obtenerPaises" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerDepartamentos">
+      <soap:operation soapAction="http://tempuri.org/IServiceUbigeo/obtenerDepartamentos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerProvincias">
+      <soap:operation soapAction="http://tempuri.org/IServiceUbigeo/obtenerProvincias" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerDistritos">
+      <soap:operation soapAction="http://tempuri.org/IServiceUbigeo/obtenerDistritos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiceUbigeo">
+    <wsdl:port name="BasicHttpBinding_IServiceUbigeo" binding="tns:BasicHttpBinding_IServiceUbigeo">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/Servicio/ServiceUbigeo/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

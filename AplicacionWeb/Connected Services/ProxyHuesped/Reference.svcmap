@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f1491c0f-8863-4715-a563-c5a5b55938b8" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/Servicio/ServiceHuesped/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="50edf7d6-6908-4243-8cfb-60dac9cc524c" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Servicio/ServiceHuesped/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="d7728821-9c56-4229-aa44-2db32c9eb2a6" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Servicio/ServiceHuesped/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="bc80b17b-354c-4c25-b5fd-9be62391cca8" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Servicio/ServiceHuesped/mex" />
+    <MetadataFile FileName="service2.xsd" MetadataType="Schema" ID="08e621a5-6763-4721-b3ec-e703cebf9408" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Servicio/ServiceHuesped/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
