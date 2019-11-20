@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="43359092-a6a2-49fe-af6e-6e52f5c0c60d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f1491c0f-8863-4715-a563-c5a5b55938b8" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,14 +19,13 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://desktop-9er81hg/Servicios/Servicio.ServiceHuesped.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/Servicio/ServiceHuesped/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Servicio.xsd" MetadataType="Schema" ID="9d567345-4e4d-43a4-9694-de5aabba13b2" SourceId="1" SourceUrl="http://desktop-9er81hg/Servicios/Servicio.ServiceHuesped.svc?xsd=xsd2" />
-    <MetadataFile FileName="Servicio1.xsd" MetadataType="Schema" ID="6c5d8483-404e-4806-ae0f-062c458a6438" SourceId="1" SourceUrl="http://desktop-9er81hg/Servicios/Servicio.ServiceHuesped.svc?xsd=xsd0" />
-    <MetadataFile FileName="Servicio.disco" MetadataType="Disco" ID="b3466eb6-19ea-43ca-b866-37eeb3242106" SourceId="1" SourceUrl="http://desktop-9er81hg/Servicios/Servicio.ServiceHuesped.svc?disco" />
-    <MetadataFile FileName="Servicio2.xsd" MetadataType="Schema" ID="953c18c7-064a-4322-a556-11c3ca168c36" SourceId="1" SourceUrl="http://desktop-9er81hg/Servicios/Servicio.ServiceHuesped.svc?xsd=xsd1" />
-    <MetadataFile FileName="ServiceHuesped.wsdl" MetadataType="Wsdl" ID="362d4d9b-bdc9-43a6-93bd-a96438039ad2" SourceId="1" SourceUrl="http://desktop-9er81hg/Servicios/Servicio.ServiceHuesped.svc?wsdl" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="50edf7d6-6908-4243-8cfb-60dac9cc524c" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Servicio/ServiceHuesped/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="d7728821-9c56-4229-aa44-2db32c9eb2a6" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Servicio/ServiceHuesped/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="bc80b17b-354c-4c25-b5fd-9be62391cca8" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Servicio/ServiceHuesped/mex" />
+    <MetadataFile FileName="service2.xsd" MetadataType="Schema" ID="08e621a5-6763-4721-b3ec-e703cebf9408" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Servicio/ServiceHuesped/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
