@@ -249,6 +249,8 @@
     <Content Include="Vistas\Ambiente\ReporteAmbientePorFecha.aspx" />
     <Content Include="Vistas\Ambiente\ReporteAmbientePorPrecio.aspx" />
     <Content Include="Vistas\Huesped\DemografiasHuespedes.aspx" />
+    <Content Include="Vistas\Reservas\RegistrarReserva.aspx" />
+    <Content Include="Vistas\Reservas\ReservasHuesped.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
@@ -350,10 +352,23 @@
     <Compile Include="Vistas\Huesped\DemografiasHuespedes.aspx.designer.cs">
       <DependentUpon>DemografiasHuespedes.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\Reservas\RegistrarReserva.aspx.cs">
+      <DependentUpon>RegistrarReserva.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Reservas\RegistrarReserva.aspx.designer.cs">
+      <DependentUpon>RegistrarReserva.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Reservas\ReservasHuesped.aspx.cs">
+      <DependentUpon>ReservasHuesped.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Reservas\ReservasHuesped.aspx.designer.cs">
+      <DependentUpon>ReservasHuesped.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Vistas\Reservas\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

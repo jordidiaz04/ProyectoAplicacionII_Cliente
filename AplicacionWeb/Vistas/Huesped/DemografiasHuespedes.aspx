@@ -48,7 +48,14 @@
                     </td>
                     <td>Tipo Documento</td>
                     <td>
-                        <asp:TextBox ID="txtTipoDocDinero" runat="server"></asp:TextBox>
+                        <asp:DropDownList ID="cbRTDoc1" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+                            <asp:ListItem Value="0">No Domiciliado</asp:ListItem>
+                            <asp:ListItem Value="1">DNI</asp:ListItem>
+                            <asp:ListItem Value="4">Carnet Extranjeria</asp:ListItem>
+                            <asp:ListItem Value="6">RUC</asp:ListItem>
+                            <asp:ListItem Value="7">Pasaporte</asp:ListItem>
+                            <asp:ListItem Value="A">P. Nacimiento</asp:ListItem>
+                        </asp:DropDownList>
                     </td>
                 </tr>
                 <tr>

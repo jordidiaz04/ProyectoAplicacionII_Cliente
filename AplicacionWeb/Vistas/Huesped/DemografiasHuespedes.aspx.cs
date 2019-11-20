@@ -54,7 +54,7 @@ namespace AplicacionWeb.Vistas.Huesped
         {
             DateTime iniDinero = DateTime.Parse(txtInicioDinero.Text);
             DateTime finDinero = DateTime.Parse(txtFinDinero.Text);
-            String tdoc = txtTipoDocDinero.Text;
+            String tdoc = cbRTDoc1.SelectedValue;
             String ndoc = txtNumDocDinero.Text;
 
             Decimal total = servicioHuespedes.obtenerDineroGastadoPorHuesped(iniDinero, finDinero, tdoc, ndoc);

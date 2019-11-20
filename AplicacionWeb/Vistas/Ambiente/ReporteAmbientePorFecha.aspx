@@ -2,6 +2,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <table class="nav-justified" style="margin-top: 20px">
         <tr>
+            <td colspan="4">
+                <br />
+                <span style="font-weight: bold; font-size: large">Ambientes disponibles por fecha</span><br />
+            </td>
+        </tr>
+        <tr>
             <td style="width: 232px">Seleccione un Departamento:</td>
             <td class="modal-sm" style="width: 232px">Seleccione una Provincia:</td>
             <td style="width: 232px">Seleccione un Distrito:</td>
