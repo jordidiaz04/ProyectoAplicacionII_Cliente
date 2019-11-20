@@ -4,17 +4,37 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using AccesoServicios;
 
 
 namespace AplicacionWeb.Vistas.Huesped
 {
     public partial class DemografiasHuespedes : System.Web.UI.Page
     {
-        ServicioHuespedes servicioHuespedes = new ServicioHuespedes();
+        ProxyHuesped.ServiceHuespedClient servicioHuespedes = new ProxyHuesped.ServiceHuespedClient();
+        ProxyUbigeo.ServiceUbigeoClient servicioUbigeo = new ProxyUbigeo.ServiceUbigeoClient();
+
+        private void loadPais()
+        {
+            cboPais.DataSource = servicioUbigeo.obtenerPaises();
+            cboPais.DataTextField = "Pais";
+            cboPais.DataValueField = "IdPais";
+            cboPais.DataBind();
+            cboPais.SelectedValue = "PER";
+        }
         
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                try
+                {
+                    loadPais();
+                }
+                catch(Exception ex)
+                {
+                    lblError.Text = "Error: " + ex.Message;
+                }
+            }
         }
 
         protected void btnPorPais_Click(object sender, EventArgs e)
@@ -43,15 +63,18 @@ namespace AplicacionWeb.Vistas.Huesped
 
         protected void btnRegistrar_Click(object sender, EventArgs e)
         {
-            Int32 id = 0;
-            String idTipoDoc = cbRTDoc.SelectedValue;
-            String numDoc = txtRNDoc.Text;
-            String nombre = txtRNombre.Text;
-            String email = txtREmail.Text;
-            String telefono = txtRTel.Text;
-            String idPais = txtRPais.Text;
-
-            Boolean registrado = servicioHuespedes.registrarHuesped();
+            ProxyHuesped.HuespedBE huesped = new ProxyHuesped.HuespedBE()
+            {
+                Id = 0,
+                IdTipoDoc = cbRTDoc.SelectedValue,
+                NumDoc = txtRNDoc.Text,
+                Nombre = txtRNombre.Text,
+                Email = txtREmail.Text,
+                Telefono = txtRTel.Text,
+                IdPais = cboPais.SelectedValue
+        };
+            
+            Boolean registrado = servicioHuespedes.registrarHuesped(huesped);
             if (registrado)
             {
                 lblRegistrado.Text = "Registro Exitoso";

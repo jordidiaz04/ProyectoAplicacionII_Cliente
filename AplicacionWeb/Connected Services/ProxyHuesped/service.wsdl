@@ -19,6 +19,12 @@
   <wsdl:message name="IServiceHuesped_obtenerDineroGastadoPorHuesped_OutputMessage">
     <wsdl:part name="parameters" element="tns:obtenerDineroGastadoPorHuespedResponse" />
   </wsdl:message>
+  <wsdl:message name="IServiceHuesped_registrarHuesped_InputMessage">
+    <wsdl:part name="parameters" element="tns:registrarHuesped" />
+  </wsdl:message>
+  <wsdl:message name="IServiceHuesped_registrarHuesped_OutputMessage">
+    <wsdl:part name="parameters" element="tns:registrarHuespedResponse" />
+  </wsdl:message>
   <wsdl:portType name="IServiceHuesped">
     <wsdl:operation name="contarHuespedesPorPais">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceHuesped/contarHuespedesPorPais" message="tns:IServiceHuesped_contarHuespedesPorPais_InputMessage" />
@@ -27,6 +33,10 @@
     <wsdl:operation name="obtenerDineroGastadoPorHuesped">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceHuesped/obtenerDineroGastadoPorHuesped" message="tns:IServiceHuesped_obtenerDineroGastadoPorHuesped_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceHuesped/obtenerDineroGastadoPorHuespedResponse" message="tns:IServiceHuesped_obtenerDineroGastadoPorHuesped_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="registrarHuesped">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceHuesped/registrarHuesped" message="tns:IServiceHuesped_registrarHuesped_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceHuesped/registrarHuespedResponse" message="tns:IServiceHuesped_registrarHuesped_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IServiceHuesped" type="tns:IServiceHuesped">
@@ -42,6 +52,15 @@
     </wsdl:operation>
     <wsdl:operation name="obtenerDineroGastadoPorHuesped">
       <soap:operation soapAction="http://tempuri.org/IServiceHuesped/obtenerDineroGastadoPorHuesped" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="registrarHuesped">
+      <soap:operation soapAction="http://tempuri.org/IServiceHuesped/registrarHuesped" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

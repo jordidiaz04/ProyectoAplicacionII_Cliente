@@ -86,7 +86,7 @@ namespace Servicio
                         numDoc = objHuespedBE.NumDoc,
                         nombre = objHuespedBE.Nombre,
                         email = objHuespedBE.Email,
-                        telefono = objHuespedBE.Email,
+                        telefono = objHuespedBE.Telefono,
                         idPais = objHuespedBE.IdPais,
                         estado = true
                     };

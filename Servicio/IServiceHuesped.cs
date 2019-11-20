@@ -20,6 +20,7 @@ namespace Servicio
                                                String idTipoDoc, 
                                                String numDoc);
 
+        [OperationContract]
         Boolean registrarHuesped(HuespedBE objHuespedBE);
     }
 }

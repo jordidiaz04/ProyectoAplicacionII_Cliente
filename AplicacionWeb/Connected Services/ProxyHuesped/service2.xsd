@@ -13,4 +13,16 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="HuespedReporteBE" nillable="true" type="tns:HuespedReporteBE" />
+  <xs:complexType name="HuespedBE">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IdPais" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdTipoDoc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumDoc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Telefono" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HuespedBE" nillable="true" type="tns:HuespedBE" />
 </xs:schema>

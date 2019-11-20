@@ -83,7 +83,7 @@
             </table>
             <br />
             <br />
-            <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="Large" Text="Registrar Usuario"></asp:Label>
+            <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="Large" Text="Registrar Huesped"></asp:Label>
             <br />
             <br />
             <table class="nav-justified">
@@ -121,7 +121,8 @@
                     </td>
                     <td>Pais</td>
                     <td>
-                        <asp:TextBox ID="txtRPais" runat="server" MaxLength="3" type="number"></asp:TextBox>
+                        <asp:DropDownList ID="cboPais" runat="server">
+                        </asp:DropDownList>
                     </td>
                 </tr>
                 <tr>
