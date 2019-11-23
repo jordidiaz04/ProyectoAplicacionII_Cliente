@@ -59,7 +59,7 @@ namespace AplicacionWeb.Vistas.Ambiente
                     txtFecSal.Text = today;
                     lblMensajeError.Text = "";
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     lblMensajeError.Text = "Error: " + ex.Message;
                 }
@@ -69,6 +69,7 @@ namespace AplicacionWeb.Vistas.Ambiente
         protected void cboDepartamento_SelectedIndexChanged(object sender, EventArgs e)
         {
             loadProvincia(cboDepartamento.SelectedValue, "01");
+            loadDistrito(cboDepartamento.SelectedValue, cboProvincia.SelectedValue, "01");
         }
 
         protected void cboProvincia_SelectedIndexChanged(object sender, EventArgs e)
