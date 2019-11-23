@@ -49,6 +49,15 @@
                         <li><a runat="server" href="~/Vistas/Ambiente/ReporteAmbientePorPrecio">Por Precio</a></li>
                     </ul>
                 </li>
+                <li>
+                    <a href="index.html" class="waves-effect">
+                        <i class="icon-home"></i><span>Huesped</span> <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="sidebar-submenu">
+                        <li><a runat="server" href="~/Vistas/Ambiente/ReporteAmbientePorFecha">Por Fecha</a></li>
+                        <li><a runat="server" href="~/Vistas/Ambiente/ReporteAmbientePorAforo">Por Aforo</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
         <header class="topbar-nav">
