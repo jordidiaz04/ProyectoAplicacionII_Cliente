@@ -13,6 +13,12 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="HuespedReporteBE" nillable="true" type="tns:HuespedReporteBE" />
+  <xs:complexType name="ArrayOfHuespedBE">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HuespedBE" nillable="true" type="tns:HuespedBE" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHuespedBE" nillable="true" type="tns:ArrayOfHuespedBE" />
   <xs:complexType name="HuespedBE">
     <xs:sequence>
       <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
@@ -22,6 +28,7 @@
       <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="NumDoc" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Telefono" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TipoDoc" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="HuespedBE" nillable="true" type="tns:HuespedBE" />

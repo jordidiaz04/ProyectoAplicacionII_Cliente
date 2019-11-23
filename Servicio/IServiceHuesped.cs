@@ -15,6 +15,11 @@ namespace Servicio
                                                       DateTime fechaFinal);
 
         [OperationContract]
+        List<HuespedBE> obtenerHuespedesPorPais(DateTime fechaInicio,
+                                                DateTime fechaFinal,
+                                                String idPais);
+
+        [OperationContract]
         Decimal obtenerDineroGastadoPorHuesped(DateTime fechaInicio,
                                                DateTime fechaFinal, 
                                                String idTipoDoc, 
@@ -33,6 +38,8 @@ public class HuespedBE
     public Int32 Id { get; set; }
     [DataMember]
     public String IdTipoDoc { get; set; }
+    [DataMember]
+    public String TipoDoc { get; set; }
     [DataMember]
     public String NumDoc { get; set; }
     [DataMember]

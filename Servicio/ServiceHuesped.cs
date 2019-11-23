@@ -9,7 +9,7 @@ namespace Servicio
 {
     public class ServiceHuesped : IServiceHuesped
     {
-        public List<HuespedReporteBE> contarHuespedesPorPais(DateTime fechaInicio, 
+        public List<HuespedReporteBE> contarHuespedesPorPais(DateTime fechaInicio,
                                                              DateTime fechaFinal)
         {
             using (HospedajeEntities entity = new HospedajeEntities())
@@ -42,8 +42,50 @@ namespace Servicio
             }
         }
 
-        public Decimal obtenerDineroGastadoPorHuesped(DateTime fechaInicio, 
-                                                      DateTime fechaFinal, 
+        public List<HuespedBE> obtenerHuespedesPorPais(DateTime fechaInicio,
+                                                       DateTime fechaFinal,
+                                                       String idPais)
+        {
+            using (HospedajeEntities entity = new HospedajeEntities())
+            {
+                try
+                {
+                    List<HuespedBE> lstHuespedBE = new List<HuespedBE>();
+                    var listaHuespedes = (from item in entity.ReservaHuesped
+                                          where item.Reserva.fechaIngreso >= fechaInicio &&
+                                                item.Reserva.fechaSalida <= fechaFinal &&
+                                                item.Huesped.idPais == idPais
+                                          select new
+                                          {
+                                              TipoDoc = item.Huesped.TipoDocumento.descripcion,
+                                              NumDoc = item.Huesped.numDoc,
+                                              Nombre = item.Huesped.nombre,
+                                              Email = item.Huesped.email
+                                          }).ToList();
+
+                    foreach (var item in listaHuespedes)
+                    {
+                        HuespedBE objHuespedBE = new HuespedBE()
+                        {
+                            TipoDoc = item.TipoDoc,
+                            NumDoc = item.NumDoc,
+                            Nombre = item.Nombre,
+                            Email = item.Email
+                        };
+                        lstHuespedBE.Add(objHuespedBE);
+                    }
+
+                    return lstHuespedBE;
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
+        }
+
+        public Decimal obtenerDineroGastadoPorHuesped(DateTime fechaInicio,
+                                                      DateTime fechaFinal,
                                                       String idTipoDoc,
                                                       String numDoc)
         {
@@ -76,7 +118,7 @@ namespace Servicio
 
         public Boolean registrarHuesped(HuespedBE objHuespedBE)
         {
-            using(HospedajeEntities entity = new HospedajeEntities())
+            using (HospedajeEntities entity = new HospedajeEntities())
             {
                 try
                 {

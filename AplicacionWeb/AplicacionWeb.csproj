@@ -759,6 +759,9 @@
     <Content Include="Connected Services\ProxyHuesped\AplicacionWeb.ProxyHuesped.HuespedReporteBE.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\ProxyHuesped\AplicacionWeb.ProxyHuesped.HuespedBE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\ProxyHuesped\configuration91.svcinfo" />
     <None Include="Connected Services\ProxyHuesped\configuration.svcinfo" />
     <None Include="Connected Services\ProxyHuesped\Reference.svcmap">
@@ -880,7 +883,9 @@
     <Content Include="Vistas\Ambiente\ReporteAmbientePorFecha.aspx" />
     <Content Include="Vistas\Ambiente\ReporteAmbientePorPrecio.aspx" />
     <Content Include="Vistas\Huesped\DemografiasHuespedes.aspx" />
+    <Content Include="Vistas\Huesped\ReporteDetalleHuespedPorPais.aspx" />
     <Content Include="Vistas\Huesped\ReporteHuespedesPorPais.aspx" />
+    <Content Include="Vistas\Huesped\ReporteHuespedesPorReserva.aspx" />
     <Content Include="Vistas\Reservas\RegistrarReserva.aspx" />
     <Content Include="Vistas\Reservas\ReservasHuesped.aspx" />
     <Content Include="Web.config" />
@@ -984,12 +989,26 @@
     <Compile Include="Vistas\Huesped\DemografiasHuespedes.aspx.designer.cs">
       <DependentUpon>DemografiasHuespedes.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\Huesped\ReporteDetalleHuespedPorPais.aspx.cs">
+      <DependentUpon>ReporteDetalleHuespedPorPais.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Huesped\ReporteDetalleHuespedPorPais.aspx.designer.cs">
+      <DependentUpon>ReporteDetalleHuespedPorPais.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\Huesped\ReporteHuespedesPorPais.aspx.cs">
       <DependentUpon>ReporteHuespedesPorPais.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Vistas\Huesped\ReporteHuespedesPorPais.aspx.designer.cs">
       <DependentUpon>ReporteHuespedesPorPais.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Huesped\ReporteHuespedesPorReserva.aspx.cs">
+      <DependentUpon>ReporteHuespedesPorReserva.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Huesped\ReporteHuespedesPorReserva.aspx.designer.cs">
+      <DependentUpon>ReporteHuespedesPorReserva.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vistas\Reservas\RegistrarReserva.aspx.cs">
       <DependentUpon>RegistrarReserva.aspx</DependentUpon>

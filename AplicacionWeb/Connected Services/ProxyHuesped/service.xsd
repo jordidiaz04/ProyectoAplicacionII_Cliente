@@ -16,6 +16,22 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="obtenerHuespedesPorPais">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="fechaInicio" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="fechaFinal" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="idPais" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="obtenerHuespedesPorPaisResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="obtenerHuespedesPorPaisResult" nillable="true" type="q2:ArrayOfHuespedBE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="obtenerDineroGastadoPorHuesped">
     <xs:complexType>
       <xs:sequence>
@@ -36,7 +52,7 @@
   <xs:element name="registrarHuesped">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="objHuespedBE" nillable="true" type="q2:HuespedBE" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="objHuespedBE" nillable="true" type="q3:HuespedBE" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
