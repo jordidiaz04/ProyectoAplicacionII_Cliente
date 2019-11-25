@@ -50,6 +50,8 @@ public class HuespedBE
     public String Telefono { get; set; }
     [DataMember]
     public String IdPais { get; set; }
+    [DataMember]
+    public String Pais { get; set; }
 }
 
 [DataContract]

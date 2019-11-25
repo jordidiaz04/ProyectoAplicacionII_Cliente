@@ -28,7 +28,7 @@ namespace Servicio
                                  select new
                                  {
                                      Dni = huesped.Huesped.numDoc,
-                                     Huesped = huesped.Huesped.nombre,
+                                     Huesped = huesped.Huesped,
                                      FechaInicio = huesped.Reserva.fechaIngreso,
                                      FechaSalida = huesped.Reserva.fechaSalida,
                                      Distrito = ambiente.Ambiente.Hotel.Ubigeo.ubicacion,
@@ -44,7 +44,12 @@ namespace Servicio
                         ReservaBE objReservaBE = new ReservaBE()
                         {
                             Dni = item.Dni,
-                            Huesped = item.Huesped,
+                            Huesped = new HuespedBE()
+                            {
+                                Nombre = item.Huesped.nombre,
+                                Email = item.Huesped.email,
+                                Pais = item.Huesped.Pais.ubicacion
+                            },
                             FechaInicio = item.FechaInicio,
                             FechaSalida = item.FechaSalida,
                             Distrito = item.Distrito,

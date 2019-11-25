@@ -5,7 +5,7 @@
             <div class="col-lg-12 mx-auto">
                 <div class="card">
                     <div class="card-body">
-                        <div class="card-title">Cantidad de huespedes según país</div>
+                        <div class="card-title">Huéspedes que realizaron reservas según país</div>
                         <hr>
                         <form>
                             <div class="row">

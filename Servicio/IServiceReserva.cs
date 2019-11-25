@@ -45,7 +45,7 @@ public class ReservaBE
     [DataMember]
     public String Dni { get; set; }
     [DataMember]
-    public String Huesped { get; set; }
+    public HuespedBE Huesped { get; set; }
     [DataMember]
     public String Distrito { get; set; }
     [DataMember]

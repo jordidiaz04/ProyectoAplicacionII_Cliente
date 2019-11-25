@@ -13,7 +13,7 @@
       <xs:element minOccurs="0" name="Dni" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FechaInicio" type="xs:dateTime" />
       <xs:element minOccurs="0" name="FechaSalida" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="Huesped" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Huesped" nillable="true" type="tns:HuespedBE" />
       <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="IdTipoPago" type="xs:int" />
       <xs:element minOccurs="0" name="Identificador" nillable="true" type="xs:string" />
@@ -23,4 +23,18 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ReservaBE" nillable="true" type="tns:ReservaBE" />
+  <xs:complexType name="HuespedBE">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IdPais" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdTipoDoc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumDoc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Pais" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Telefono" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TipoDoc" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HuespedBE" nillable="true" type="tns:HuespedBE" />
 </xs:schema>
