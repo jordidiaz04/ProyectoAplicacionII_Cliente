@@ -28,7 +28,7 @@ namespace Servicio
                                  select new
                                  {
                                      Dni = huesped.Huesped.numDoc,
-                                     Huesped = huesped.Huesped,
+                                     huesped.Huesped,
                                      FechaInicio = huesped.Reserva.fechaIngreso,
                                      FechaSalida = huesped.Reserva.fechaSalida,
                                      Distrito = ambiente.Ambiente.Hotel.Ubigeo.ubicacion,
@@ -110,6 +110,7 @@ namespace Servicio
                 }
                 catch (Exception ex)
                 {
+                    return false;
                     throw ex;
                 }
             }

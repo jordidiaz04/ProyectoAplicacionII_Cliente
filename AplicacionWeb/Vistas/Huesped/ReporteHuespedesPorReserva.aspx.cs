@@ -10,6 +10,7 @@ namespace AplicacionWeb.Vistas.Huesped
     public partial class ReporteHuespedesPorReserva : System.Web.UI.Page
     {
         private ProxyTipoDocumento.ServiceTipoDocumentoClient serviceTipoDocumento = new ProxyTipoDocumento.ServiceTipoDocumentoClient();
+        private ProxyHuesped.ServiceHuespedClient serviceHuesped = new ProxyHuesped.ServiceHuespedClient();
         private ProxyReserva.ServiceReservaClient serviceReserva = new ProxyReserva.ServiceReservaClient();
         private String firstDay = "01/" + DateTime.Today.Month + "/" + DateTime.Today.Year;
         private String today = DateTime.Today.ToShortDateString();
@@ -33,6 +34,7 @@ namespace AplicacionWeb.Vistas.Huesped
                     txtFecIng.Text = firstDay;
                     txtFecSal.Text = today;
                     lblMensajeError.Text = "";
+                    panelDatos.Visible = false;
                 }
                 catch (Exception ex)
                 {
@@ -67,6 +69,7 @@ namespace AplicacionWeb.Vistas.Huesped
                     lblNombre.Text = objHuesped.Huesped.Nombre;
                     lblEmail.Text = objHuesped.Huesped.Email;
                     lblPais.Text = objHuesped.Huesped.Pais;
+                    txtTotal.Text = "S/. " + serviceHuesped.obtenerDineroGastadoPorHuesped(fecIng, fecSal, idTipoDoc, numDoc).ToString("#.00");
                 }
             }
             catch (Exception ex)

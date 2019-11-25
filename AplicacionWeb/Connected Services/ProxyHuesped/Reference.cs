@@ -102,6 +102,9 @@ namespace AplicacionWeb.ProxyHuesped {
         private string NumDocField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PaisField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TelefonoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -191,6 +194,19 @@ namespace AplicacionWeb.ProxyHuesped {
                 if ((object.ReferenceEquals(this.NumDocField, value) != true)) {
                     this.NumDocField = value;
                     this.RaisePropertyChanged("NumDoc");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Pais {
+            get {
+                return this.PaisField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PaisField, value) != true)) {
+                    this.PaisField = value;
+                    this.RaisePropertyChanged("Pais");
                 }
             }
         }

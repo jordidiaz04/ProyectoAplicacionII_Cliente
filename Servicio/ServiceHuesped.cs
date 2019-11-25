@@ -99,7 +99,9 @@ namespace Servicio
                     var lista = (from huesped in entity.ReservaHuesped
                                  join ambiente in entity.ReservaDetalle on huesped.idReserva equals ambiente.idReserva
                                  where huesped.Huesped.idTipoDoc == idTipoDoc &&
-                                       huesped.Huesped.numDoc == numDoc
+                                       huesped.Huesped.numDoc == numDoc &&
+                                       huesped.Reserva.fechaIngreso >= fechaInicio &&
+                                       huesped.Reserva.fechaSalida <= fechaFinal
                                  select new { monto = huesped.Reserva.monto }).ToList();
 
                     foreach (var item in lista)
@@ -111,6 +113,7 @@ namespace Servicio
                 }
                 catch (Exception ex)
                 {
+                    return 0;
                     throw ex;
                 }
             }
