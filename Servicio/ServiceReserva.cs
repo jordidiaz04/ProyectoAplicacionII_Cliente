@@ -72,6 +72,65 @@ namespace Servicio
             }
         }
 
+        public List<ReservaBE> listarReservasPorFecha(DateTime fechaInicio,
+                                                      DateTime fechaFinal)
+        {
+            using (HospedajeEntities entity = new HospedajeEntities())
+            {
+                try
+                {
+                    List<ReservaBE> lstReservaBE = new List<ReservaBE>();
+                    var lista = (from huesped in entity.ReservaHuesped
+                                 join ambiente in entity.ReservaDetalle on huesped.idReserva equals ambiente.idReserva
+                                 where huesped.Reserva.fechaIngreso >= fechaInicio &&
+                                       huesped.Reserva.fechaSalida <= fechaFinal
+                                 select new
+                                 {
+                                     Dni = huesped.Huesped.numDoc,
+                                     huesped.Huesped,
+                                     FechaInicio = huesped.Reserva.fechaIngreso,
+                                     FechaSalida = huesped.Reserva.fechaSalida,
+                                     Distrito = ambiente.Ambiente.Hotel.Ubigeo.ubicacion,
+                                     Direccion = ambiente.Ambiente.Hotel.direccion,
+                                     Piso = ambiente.Ambiente.piso,
+                                     Identificador = ambiente.Ambiente.identificador,
+                                     TipoPago = ambiente.Reserva.TipoPago.descripcion,
+                                     Monto = huesped.Reserva.monto
+                                 }).ToList();
+
+                    foreach (var item in lista)
+                    {
+                        ReservaBE objReservaBE = new ReservaBE()
+                        {
+                            Dni = item.Dni,
+                            Huesped = new HuespedBE()
+                            {
+                                Nombre = item.Huesped.nombre,
+                                Email = item.Huesped.email,
+                                Pais = item.Huesped.Pais.ubicacion
+                            },
+                            FechaInicio = item.FechaInicio,
+                            FechaSalida = item.FechaSalida,
+                            Distrito = item.Distrito,
+                            Direccion = item.Direccion,
+                            Piso = item.Piso,
+                            Identificador = item.Identificador,
+                            TipoPago = item.TipoPago,
+                            Monto = item.Monto
+                        };
+                        lstReservaBE.Add(objReservaBE);
+                    }
+
+                    return lstReservaBE;
+                }
+                catch (Exception ex)
+                {
+                    return null;
+                    throw ex;
+                }
+            }
+        }
+
         public bool registrarReserva(DateTime fechaIngreso,
                                      DateTime fechaSalida,
                                      Int32 idTipoPago,

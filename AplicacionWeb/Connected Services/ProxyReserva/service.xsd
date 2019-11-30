@@ -19,6 +19,21 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="listarReservasPorFecha">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="fechaInicio" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="fechaFinal" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listarReservasPorFechaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="listarReservasPorFechaResult" nillable="true" type="q2:ArrayOfReservaBE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="registrarReserva">
     <xs:complexType>
       <xs:sequence>
@@ -26,8 +41,8 @@
         <xs:element minOccurs="0" name="fechaSalida" type="xs:dateTime" />
         <xs:element minOccurs="0" name="idTipoPago" type="xs:int" />
         <xs:element minOccurs="0" name="monto" type="xs:decimal" />
-        <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="lstIdsAmbiente" nillable="true" type="q2:ArrayOfint" />
-        <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="lstIdsHuesped" nillable="true" type="q3:ArrayOfint" />
+        <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="lstIdsAmbiente" nillable="true" type="q3:ArrayOfint" />
+        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="lstIdsHuesped" nillable="true" type="q4:ArrayOfint" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

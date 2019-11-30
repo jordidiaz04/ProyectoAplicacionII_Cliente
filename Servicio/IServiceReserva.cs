@@ -17,6 +17,10 @@ namespace Servicio
                                                  DateTime fechaFinal);
 
         [OperationContract]
+        List<ReservaBE> listarReservasPorFecha(DateTime fechaInicio,
+                                               DateTime fechaFinal);
+
+        [OperationContract]
         Boolean registrarReserva(DateTime fechaIngreso,
                                  DateTime fechaSalida,
                                  Int32 idTipoPago,
