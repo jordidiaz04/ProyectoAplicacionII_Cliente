@@ -59,14 +59,6 @@
                         <li><a runat="server" href="~/Vistas/Huesped/ReporteHuespedesPorReserva">Por Reserva</a></li>
                     </ul>
                 </li>
-                <li>
-                    <a href="index.html" class="waves-effect">
-                        <i class="fa fa-save"></i><span>Reserva</span> <i class="fa fa-angle-left pull-right"></i>
-                    </a>
-                    <ul class="sidebar-submenu">
-                        <li><a runat="server" href="~/Vistas/Reserva/RegistrarReserva">Registrar</a></li>
-                    </ul>
-                </li>
             </ul>
         </div>
         <header class="topbar-nav">
