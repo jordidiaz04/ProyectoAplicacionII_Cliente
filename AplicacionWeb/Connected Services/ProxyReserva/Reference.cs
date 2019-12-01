@@ -418,10 +418,10 @@ namespace AplicacionWeb.ProxyReserva {
         System.Threading.Tasks.Task<AplicacionWeb.ProxyReserva.ReservaBE[]> listarReservasPorHuespedAsync(string idTipoDoc, string numDoc, System.DateTime fechaInicio, System.DateTime fechaFinal);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceReserva/listarReservasPorFecha", ReplyAction="http://tempuri.org/IServiceReserva/listarReservasPorFechaResponse")]
-        AplicacionWeb.ProxyReserva.ReservaBE[] listarReservasPorFecha(System.DateTime fechaInicio, System.DateTime fechaFinal);
+        AplicacionWeb.ProxyReserva.ReservaBE[] listarReservasPorFecha(System.DateTime fechaInicio, System.DateTime fechaFinal, string idUbigeo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceReserva/listarReservasPorFecha", ReplyAction="http://tempuri.org/IServiceReserva/listarReservasPorFechaResponse")]
-        System.Threading.Tasks.Task<AplicacionWeb.ProxyReserva.ReservaBE[]> listarReservasPorFechaAsync(System.DateTime fechaInicio, System.DateTime fechaFinal);
+        System.Threading.Tasks.Task<AplicacionWeb.ProxyReserva.ReservaBE[]> listarReservasPorFechaAsync(System.DateTime fechaInicio, System.DateTime fechaFinal, string idUbigeo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceReserva/registrarReserva", ReplyAction="http://tempuri.org/IServiceReserva/registrarReservaResponse")]
         bool registrarReserva(System.DateTime fechaIngreso, System.DateTime fechaSalida, int idTipoPago, decimal monto, int[] lstIdsAmbiente, int[] lstIdsHuesped);
@@ -465,12 +465,12 @@ namespace AplicacionWeb.ProxyReserva {
             return base.Channel.listarReservasPorHuespedAsync(idTipoDoc, numDoc, fechaInicio, fechaFinal);
         }
         
-        public AplicacionWeb.ProxyReserva.ReservaBE[] listarReservasPorFecha(System.DateTime fechaInicio, System.DateTime fechaFinal) {
-            return base.Channel.listarReservasPorFecha(fechaInicio, fechaFinal);
+        public AplicacionWeb.ProxyReserva.ReservaBE[] listarReservasPorFecha(System.DateTime fechaInicio, System.DateTime fechaFinal, string idUbigeo) {
+            return base.Channel.listarReservasPorFecha(fechaInicio, fechaFinal, idUbigeo);
         }
         
-        public System.Threading.Tasks.Task<AplicacionWeb.ProxyReserva.ReservaBE[]> listarReservasPorFechaAsync(System.DateTime fechaInicio, System.DateTime fechaFinal) {
-            return base.Channel.listarReservasPorFechaAsync(fechaInicio, fechaFinal);
+        public System.Threading.Tasks.Task<AplicacionWeb.ProxyReserva.ReservaBE[]> listarReservasPorFechaAsync(System.DateTime fechaInicio, System.DateTime fechaFinal, string idUbigeo) {
+            return base.Channel.listarReservasPorFechaAsync(fechaInicio, fechaFinal, idUbigeo);
         }
         
         public bool registrarReserva(System.DateTime fechaIngreso, System.DateTime fechaSalida, int idTipoPago, decimal monto, int[] lstIdsAmbiente, int[] lstIdsHuesped) {

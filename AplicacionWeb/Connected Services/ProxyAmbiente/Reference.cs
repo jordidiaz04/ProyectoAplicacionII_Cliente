@@ -26,13 +26,22 @@ namespace AplicacionWeb.ProxyAmbiente {
         private int AforoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescripcionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DireccionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DistritoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdAmbienteField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string IdentificadorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal MontoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int PisoField;
@@ -64,6 +73,19 @@ namespace AplicacionWeb.ProxyAmbiente {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Descripcion {
+            get {
+                return this.DescripcionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescripcionField, value) != true)) {
+                    this.DescripcionField = value;
+                    this.RaisePropertyChanged("Descripcion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Direccion {
             get {
                 return this.DireccionField;
@@ -90,6 +112,19 @@ namespace AplicacionWeb.ProxyAmbiente {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int IdAmbiente {
+            get {
+                return this.IdAmbienteField;
+            }
+            set {
+                if ((this.IdAmbienteField.Equals(value) != true)) {
+                    this.IdAmbienteField = value;
+                    this.RaisePropertyChanged("IdAmbiente");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Identificador {
             get {
                 return this.IdentificadorField;
@@ -98,6 +133,19 @@ namespace AplicacionWeb.ProxyAmbiente {
                 if ((object.ReferenceEquals(this.IdentificadorField, value) != true)) {
                     this.IdentificadorField = value;
                     this.RaisePropertyChanged("Identificador");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal Monto {
+            get {
+                return this.MontoField;
+            }
+            set {
+                if ((this.MontoField.Equals(value) != true)) {
+                    this.MontoField = value;
+                    this.RaisePropertyChanged("Monto");
                 }
             }
         }

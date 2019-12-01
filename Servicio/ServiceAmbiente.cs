@@ -90,12 +90,15 @@ namespace Servicio
                     {
                         AmbienteBE objAmbienteBE = new AmbienteBE()
                         {
+                            IdAmbiente = item.id,
                             Aforo = item.aforo,
                             Distrito = item.Hotel.Ubigeo.ubicacion,
                             Direccion = item.Hotel.direccion,
                             Piso = item.piso,
                             Identificador = item.identificador,
-                            Precio = item.precio
+                            Precio = item.precio,
+                            Descripcion = item.identificador.Contains("PISCINA") || item.identificador.Contains("SALA") ? item.identificador :
+                                          "Habitacion " + item.identificador
                         };
                         lstAmbienteBE.Add(objAmbienteBE);
                     }

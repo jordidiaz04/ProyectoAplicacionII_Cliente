@@ -9,9 +9,12 @@
   <xs:complexType name="AmbienteBE">
     <xs:sequence>
       <xs:element minOccurs="0" name="Aforo" type="xs:int" />
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Direccion" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Distrito" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdAmbiente" type="xs:int" />
       <xs:element minOccurs="0" name="Identificador" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Monto" type="xs:decimal" />
       <xs:element minOccurs="0" name="Piso" type="xs:int" />
       <xs:element minOccurs="0" name="Precio" type="xs:decimal" />
     </xs:sequence>

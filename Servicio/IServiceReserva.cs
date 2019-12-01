@@ -18,7 +18,8 @@ namespace Servicio
 
         [OperationContract]
         List<ReservaBE> listarReservasPorFecha(DateTime fechaInicio,
-                                               DateTime fechaFinal);
+                                               DateTime fechaFinal,
+                                               String idUbigeo);
 
         [OperationContract]
         Boolean registrarReserva(DateTime fechaIngreso,

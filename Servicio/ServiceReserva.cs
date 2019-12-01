@@ -73,7 +73,8 @@ namespace Servicio
         }
 
         public List<ReservaBE> listarReservasPorFecha(DateTime fechaInicio,
-                                                      DateTime fechaFinal)
+                                                      DateTime fechaFinal,
+                                                      String idUbigeo)
         {
             using (HospedajeEntities entity = new HospedajeEntities())
             {
@@ -83,7 +84,8 @@ namespace Servicio
                     var lista = (from huesped in entity.ReservaHuesped
                                  join ambiente in entity.ReservaDetalle on huesped.idReserva equals ambiente.idReserva
                                  where huesped.Reserva.fechaIngreso >= fechaInicio &&
-                                       huesped.Reserva.fechaSalida <= fechaFinal
+                                       huesped.Reserva.fechaSalida <= fechaFinal &&
+                                       ambiente.Ambiente.Hotel.Ubigeo.id == idUbigeo
                                  select new
                                  {
                                      Dni = huesped.Huesped.numDoc,

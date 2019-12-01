@@ -905,6 +905,8 @@
     <Content Include="Vistas\Huesped\ReporteDetalleHuespedPorPais.aspx" />
     <Content Include="Vistas\Huesped\ReporteHuespedesPorPais.aspx" />
     <Content Include="Vistas\Huesped\ReporteHuespedesPorReserva.aspx" />
+    <Content Include="Vistas\Reserva\RegistrarReserva.aspx" />
+    <Content Include="Vistas\Reserva\ReporteReservasPorFecha.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
@@ -1031,6 +1033,20 @@
     </Compile>
     <Compile Include="Vistas\Huesped\ReporteHuespedesPorReserva.aspx.designer.cs">
       <DependentUpon>ReporteHuespedesPorReserva.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Reserva\RegistrarReserva.aspx.cs">
+      <DependentUpon>RegistrarReserva.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Reserva\RegistrarReserva.aspx.designer.cs">
+      <DependentUpon>RegistrarReserva.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Reserva\ReporteReservasPorFecha.aspx.cs">
+      <DependentUpon>ReporteReservasPorFecha.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Reserva\ReporteReservasPorFecha.aspx.designer.cs">
+      <DependentUpon>ReporteReservasPorFecha.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

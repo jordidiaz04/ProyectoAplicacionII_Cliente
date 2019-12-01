@@ -34,6 +34,8 @@ namespace Servicio
 public class AmbienteBE
 {
     [DataMember]
+    public Int32 IdAmbiente { get; set; }
+    [DataMember]
     public String Distrito { get; set; }
     [DataMember]
     public String Direccion { get; set; }
@@ -45,4 +47,10 @@ public class AmbienteBE
     public Int32 Aforo { get; set; }
     [DataMember]
     public Decimal Precio { get; set; }
+
+    //Adicional
+    [DataMember]
+    public String Descripcion { get; set; }
+    [DataMember]
+    public Decimal Monto { get; set; }
 }

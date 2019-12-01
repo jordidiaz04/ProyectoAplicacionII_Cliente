@@ -24,6 +24,7 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="fechaInicio" type="xs:dateTime" />
         <xs:element minOccurs="0" name="fechaFinal" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="idUbigeo" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
