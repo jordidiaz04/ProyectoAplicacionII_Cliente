@@ -407,27 +407,200 @@ namespace AplicacionWeb.ProxyReserva {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AmbienteBE", Namespace="http://schemas.datacontract.org/2004/07/")]
+    [System.SerializableAttribute()]
+    public partial class AmbienteBE : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int AforoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescripcionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DireccionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DistritoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdAmbienteField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IdentificadorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal MontoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int PisoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal PrecioField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Aforo {
+            get {
+                return this.AforoField;
+            }
+            set {
+                if ((this.AforoField.Equals(value) != true)) {
+                    this.AforoField = value;
+                    this.RaisePropertyChanged("Aforo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Descripcion {
+            get {
+                return this.DescripcionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescripcionField, value) != true)) {
+                    this.DescripcionField = value;
+                    this.RaisePropertyChanged("Descripcion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Direccion {
+            get {
+                return this.DireccionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DireccionField, value) != true)) {
+                    this.DireccionField = value;
+                    this.RaisePropertyChanged("Direccion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Distrito {
+            get {
+                return this.DistritoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DistritoField, value) != true)) {
+                    this.DistritoField = value;
+                    this.RaisePropertyChanged("Distrito");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int IdAmbiente {
+            get {
+                return this.IdAmbienteField;
+            }
+            set {
+                if ((this.IdAmbienteField.Equals(value) != true)) {
+                    this.IdAmbienteField = value;
+                    this.RaisePropertyChanged("IdAmbiente");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Identificador {
+            get {
+                return this.IdentificadorField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IdentificadorField, value) != true)) {
+                    this.IdentificadorField = value;
+                    this.RaisePropertyChanged("Identificador");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal Monto {
+            get {
+                return this.MontoField;
+            }
+            set {
+                if ((this.MontoField.Equals(value) != true)) {
+                    this.MontoField = value;
+                    this.RaisePropertyChanged("Monto");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Piso {
+            get {
+                return this.PisoField;
+            }
+            set {
+                if ((this.PisoField.Equals(value) != true)) {
+                    this.PisoField = value;
+                    this.RaisePropertyChanged("Piso");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal Precio {
+            get {
+                return this.PrecioField;
+            }
+            set {
+                if ((this.PrecioField.Equals(value) != true)) {
+                    this.PrecioField = value;
+                    this.RaisePropertyChanged("Precio");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ProxyReserva.IServiceReserva")]
     public interface IServiceReserva {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceReserva/listarReservasPorHuesped", ReplyAction="http://tempuri.org/IServiceReserva/listarReservasPorHuespedResponse")]
-        AplicacionWeb.ProxyReserva.ReservaBE[] listarReservasPorHuesped(string idTipoDoc, string numDoc, System.DateTime fechaInicio, System.DateTime fechaFinal);
+        System.Collections.Generic.List<AplicacionWeb.ProxyReserva.ReservaBE> listarReservasPorHuesped(string idTipoDoc, string numDoc, System.DateTime fechaInicio, System.DateTime fechaFinal);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceReserva/listarReservasPorHuesped", ReplyAction="http://tempuri.org/IServiceReserva/listarReservasPorHuespedResponse")]
-        System.Threading.Tasks.Task<AplicacionWeb.ProxyReserva.ReservaBE[]> listarReservasPorHuespedAsync(string idTipoDoc, string numDoc, System.DateTime fechaInicio, System.DateTime fechaFinal);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<AplicacionWeb.ProxyReserva.ReservaBE>> listarReservasPorHuespedAsync(string idTipoDoc, string numDoc, System.DateTime fechaInicio, System.DateTime fechaFinal);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceReserva/listarReservasPorFecha", ReplyAction="http://tempuri.org/IServiceReserva/listarReservasPorFechaResponse")]
-        AplicacionWeb.ProxyReserva.ReservaBE[] listarReservasPorFecha(System.DateTime fechaInicio, System.DateTime fechaFinal, string idUbigeo);
+        System.Collections.Generic.List<AplicacionWeb.ProxyReserva.ReservaBE> listarReservasPorFecha(System.DateTime fechaInicio, System.DateTime fechaFinal, string idUbigeo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceReserva/listarReservasPorFecha", ReplyAction="http://tempuri.org/IServiceReserva/listarReservasPorFechaResponse")]
-        System.Threading.Tasks.Task<AplicacionWeb.ProxyReserva.ReservaBE[]> listarReservasPorFechaAsync(System.DateTime fechaInicio, System.DateTime fechaFinal, string idUbigeo);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<AplicacionWeb.ProxyReserva.ReservaBE>> listarReservasPorFechaAsync(System.DateTime fechaInicio, System.DateTime fechaFinal, string idUbigeo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceReserva/registrarReserva", ReplyAction="http://tempuri.org/IServiceReserva/registrarReservaResponse")]
-        bool registrarReserva(System.DateTime fechaIngreso, System.DateTime fechaSalida, int idTipoPago, decimal monto, int[] lstIdsAmbiente, int[] lstIdsHuesped);
+        bool registrarReserva(System.Collections.Generic.List<AplicacionWeb.ProxyReserva.HuespedBE> lstHuespedBE, System.Collections.Generic.List<AplicacionWeb.ProxyReserva.AmbienteBE> lstAmbienteBE, System.DateTime fechaInicio, System.DateTime fechaSalida, int idTipoPago, decimal monto);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceReserva/registrarReserva", ReplyAction="http://tempuri.org/IServiceReserva/registrarReservaResponse")]
-        System.Threading.Tasks.Task<bool> registrarReservaAsync(System.DateTime fechaIngreso, System.DateTime fechaSalida, int idTipoPago, decimal monto, int[] lstIdsAmbiente, int[] lstIdsHuesped);
+        System.Threading.Tasks.Task<bool> registrarReservaAsync(System.Collections.Generic.List<AplicacionWeb.ProxyReserva.HuespedBE> lstHuespedBE, System.Collections.Generic.List<AplicacionWeb.ProxyReserva.AmbienteBE> lstAmbienteBE, System.DateTime fechaInicio, System.DateTime fechaSalida, int idTipoPago, decimal monto);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -457,28 +630,28 @@ namespace AplicacionWeb.ProxyReserva {
                 base(binding, remoteAddress) {
         }
         
-        public AplicacionWeb.ProxyReserva.ReservaBE[] listarReservasPorHuesped(string idTipoDoc, string numDoc, System.DateTime fechaInicio, System.DateTime fechaFinal) {
+        public System.Collections.Generic.List<AplicacionWeb.ProxyReserva.ReservaBE> listarReservasPorHuesped(string idTipoDoc, string numDoc, System.DateTime fechaInicio, System.DateTime fechaFinal) {
             return base.Channel.listarReservasPorHuesped(idTipoDoc, numDoc, fechaInicio, fechaFinal);
         }
         
-        public System.Threading.Tasks.Task<AplicacionWeb.ProxyReserva.ReservaBE[]> listarReservasPorHuespedAsync(string idTipoDoc, string numDoc, System.DateTime fechaInicio, System.DateTime fechaFinal) {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<AplicacionWeb.ProxyReserva.ReservaBE>> listarReservasPorHuespedAsync(string idTipoDoc, string numDoc, System.DateTime fechaInicio, System.DateTime fechaFinal) {
             return base.Channel.listarReservasPorHuespedAsync(idTipoDoc, numDoc, fechaInicio, fechaFinal);
         }
         
-        public AplicacionWeb.ProxyReserva.ReservaBE[] listarReservasPorFecha(System.DateTime fechaInicio, System.DateTime fechaFinal, string idUbigeo) {
+        public System.Collections.Generic.List<AplicacionWeb.ProxyReserva.ReservaBE> listarReservasPorFecha(System.DateTime fechaInicio, System.DateTime fechaFinal, string idUbigeo) {
             return base.Channel.listarReservasPorFecha(fechaInicio, fechaFinal, idUbigeo);
         }
         
-        public System.Threading.Tasks.Task<AplicacionWeb.ProxyReserva.ReservaBE[]> listarReservasPorFechaAsync(System.DateTime fechaInicio, System.DateTime fechaFinal, string idUbigeo) {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<AplicacionWeb.ProxyReserva.ReservaBE>> listarReservasPorFechaAsync(System.DateTime fechaInicio, System.DateTime fechaFinal, string idUbigeo) {
             return base.Channel.listarReservasPorFechaAsync(fechaInicio, fechaFinal, idUbigeo);
         }
         
-        public bool registrarReserva(System.DateTime fechaIngreso, System.DateTime fechaSalida, int idTipoPago, decimal monto, int[] lstIdsAmbiente, int[] lstIdsHuesped) {
-            return base.Channel.registrarReserva(fechaIngreso, fechaSalida, idTipoPago, monto, lstIdsAmbiente, lstIdsHuesped);
+        public bool registrarReserva(System.Collections.Generic.List<AplicacionWeb.ProxyReserva.HuespedBE> lstHuespedBE, System.Collections.Generic.List<AplicacionWeb.ProxyReserva.AmbienteBE> lstAmbienteBE, System.DateTime fechaInicio, System.DateTime fechaSalida, int idTipoPago, decimal monto) {
+            return base.Channel.registrarReserva(lstHuespedBE, lstAmbienteBE, fechaInicio, fechaSalida, idTipoPago, monto);
         }
         
-        public System.Threading.Tasks.Task<bool> registrarReservaAsync(System.DateTime fechaIngreso, System.DateTime fechaSalida, int idTipoPago, decimal monto, int[] lstIdsAmbiente, int[] lstIdsHuesped) {
-            return base.Channel.registrarReservaAsync(fechaIngreso, fechaSalida, idTipoPago, monto, lstIdsAmbiente, lstIdsHuesped);
+        public System.Threading.Tasks.Task<bool> registrarReservaAsync(System.Collections.Generic.List<AplicacionWeb.ProxyReserva.HuespedBE> lstHuespedBE, System.Collections.Generic.List<AplicacionWeb.ProxyReserva.AmbienteBE> lstAmbienteBE, System.DateTime fechaInicio, System.DateTime fechaSalida, int idTipoPago, decimal monto) {
+            return base.Channel.registrarReservaAsync(lstHuespedBE, lstAmbienteBE, fechaInicio, fechaSalida, idTipoPago, monto);
         }
     }
 }

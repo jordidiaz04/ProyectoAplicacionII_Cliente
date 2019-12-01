@@ -9,7 +9,9 @@
     <GenerateInternalTypes>false</GenerateInternalTypes>
     <GenerateMessageContracts>false</GenerateMessageContracts>
     <NamespaceMappings />
-    <CollectionMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
     <GenerateSerializableTypes>true</GenerateSerializableTypes>
     <Serializer>Auto</Serializer>
     <UseSerializerForFaults>true</UseSerializerForFaults>
@@ -26,7 +28,6 @@
     <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="2c629dc3-2bb7-408b-96d0-3e1ce193c9bf" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Servicio/ServiceReserva/mex" />
     <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="4f5eedcb-6184-406a-a5f1-f1a9c7a7aa73" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Servicio/ServiceReserva/mex" />
     <MetadataFile FileName="service2.xsd" MetadataType="Schema" ID="57ea7d11-202c-4e47-93b6-4195c6312271" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Servicio/ServiceReserva/mex" />
-    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="eecdf833-22e9-442b-83ed-8727a826d9c5" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Servicio/ServiceReserva/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

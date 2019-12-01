@@ -15,67 +15,6 @@ namespace AplicacionWeb.ProxyHuesped {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="HuespedReporteBE", Namespace="http://schemas.datacontract.org/2004/07/")]
-    [System.SerializableAttribute()]
-    public partial class HuespedReporteBE : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int CantidadField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PaisField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Cantidad {
-            get {
-                return this.CantidadField;
-            }
-            set {
-                if ((this.CantidadField.Equals(value) != true)) {
-                    this.CantidadField = value;
-                    this.RaisePropertyChanged("Cantidad");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Pais {
-            get {
-                return this.PaisField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PaisField, value) != true)) {
-                    this.PaisField = value;
-                    this.RaisePropertyChanged("Pais");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="HuespedBE", Namespace="http://schemas.datacontract.org/2004/07/")]
     [System.SerializableAttribute()]
     public partial class HuespedBE : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -247,21 +186,88 @@ namespace AplicacionWeb.ProxyHuesped {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="HuespedReporteBE", Namespace="http://schemas.datacontract.org/2004/07/")]
+    [System.SerializableAttribute()]
+    public partial class HuespedReporteBE : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int CantidadField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PaisField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Cantidad {
+            get {
+                return this.CantidadField;
+            }
+            set {
+                if ((this.CantidadField.Equals(value) != true)) {
+                    this.CantidadField = value;
+                    this.RaisePropertyChanged("Cantidad");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Pais {
+            get {
+                return this.PaisField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PaisField, value) != true)) {
+                    this.PaisField = value;
+                    this.RaisePropertyChanged("Pais");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ProxyHuesped.IServiceHuesped")]
     public interface IServiceHuesped {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceHuesped/contarHuespedesPorPais", ReplyAction="http://tempuri.org/IServiceHuesped/contarHuespedesPorPaisResponse")]
-        AplicacionWeb.ProxyHuesped.HuespedReporteBE[] contarHuespedesPorPais(System.DateTime fechaInicio, System.DateTime fechaFinal);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceHuesped/obtenerHuesped", ReplyAction="http://tempuri.org/IServiceHuesped/obtenerHuespedResponse")]
+        AplicacionWeb.ProxyHuesped.HuespedBE obtenerHuesped(string idTipoDoc, string numDoc);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceHuesped/obtenerHuesped", ReplyAction="http://tempuri.org/IServiceHuesped/obtenerHuespedResponse")]
+        System.Threading.Tasks.Task<AplicacionWeb.ProxyHuesped.HuespedBE> obtenerHuespedAsync(string idTipoDoc, string numDoc);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceHuesped/contarHuespedesPorPais", ReplyAction="http://tempuri.org/IServiceHuesped/contarHuespedesPorPaisResponse")]
-        System.Threading.Tasks.Task<AplicacionWeb.ProxyHuesped.HuespedReporteBE[]> contarHuespedesPorPaisAsync(System.DateTime fechaInicio, System.DateTime fechaFinal);
+        System.Collections.Generic.List<AplicacionWeb.ProxyHuesped.HuespedReporteBE> contarHuespedesPorPais(System.DateTime fechaInicio, System.DateTime fechaFinal);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceHuesped/contarHuespedesPorPais", ReplyAction="http://tempuri.org/IServiceHuesped/contarHuespedesPorPaisResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<AplicacionWeb.ProxyHuesped.HuespedReporteBE>> contarHuespedesPorPaisAsync(System.DateTime fechaInicio, System.DateTime fechaFinal);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceHuesped/obtenerHuespedesPorPais", ReplyAction="http://tempuri.org/IServiceHuesped/obtenerHuespedesPorPaisResponse")]
-        AplicacionWeb.ProxyHuesped.HuespedBE[] obtenerHuespedesPorPais(System.DateTime fechaInicio, System.DateTime fechaFinal, string idPais);
+        System.Collections.Generic.List<AplicacionWeb.ProxyHuesped.HuespedBE> obtenerHuespedesPorPais(System.DateTime fechaInicio, System.DateTime fechaFinal, string idPais);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceHuesped/obtenerHuespedesPorPais", ReplyAction="http://tempuri.org/IServiceHuesped/obtenerHuespedesPorPaisResponse")]
-        System.Threading.Tasks.Task<AplicacionWeb.ProxyHuesped.HuespedBE[]> obtenerHuespedesPorPaisAsync(System.DateTime fechaInicio, System.DateTime fechaFinal, string idPais);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<AplicacionWeb.ProxyHuesped.HuespedBE>> obtenerHuespedesPorPaisAsync(System.DateTime fechaInicio, System.DateTime fechaFinal, string idPais);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceHuesped/obtenerDineroGastadoPorHuesped", ReplyAction="http://tempuri.org/IServiceHuesped/obtenerDineroGastadoPorHuespedResponse")]
         decimal obtenerDineroGastadoPorHuesped(System.DateTime fechaInicio, System.DateTime fechaFinal, string idTipoDoc, string numDoc);
@@ -303,19 +309,27 @@ namespace AplicacionWeb.ProxyHuesped {
                 base(binding, remoteAddress) {
         }
         
-        public AplicacionWeb.ProxyHuesped.HuespedReporteBE[] contarHuespedesPorPais(System.DateTime fechaInicio, System.DateTime fechaFinal) {
+        public AplicacionWeb.ProxyHuesped.HuespedBE obtenerHuesped(string idTipoDoc, string numDoc) {
+            return base.Channel.obtenerHuesped(idTipoDoc, numDoc);
+        }
+        
+        public System.Threading.Tasks.Task<AplicacionWeb.ProxyHuesped.HuespedBE> obtenerHuespedAsync(string idTipoDoc, string numDoc) {
+            return base.Channel.obtenerHuespedAsync(idTipoDoc, numDoc);
+        }
+        
+        public System.Collections.Generic.List<AplicacionWeb.ProxyHuesped.HuespedReporteBE> contarHuespedesPorPais(System.DateTime fechaInicio, System.DateTime fechaFinal) {
             return base.Channel.contarHuespedesPorPais(fechaInicio, fechaFinal);
         }
         
-        public System.Threading.Tasks.Task<AplicacionWeb.ProxyHuesped.HuespedReporteBE[]> contarHuespedesPorPaisAsync(System.DateTime fechaInicio, System.DateTime fechaFinal) {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<AplicacionWeb.ProxyHuesped.HuespedReporteBE>> contarHuespedesPorPaisAsync(System.DateTime fechaInicio, System.DateTime fechaFinal) {
             return base.Channel.contarHuespedesPorPaisAsync(fechaInicio, fechaFinal);
         }
         
-        public AplicacionWeb.ProxyHuesped.HuespedBE[] obtenerHuespedesPorPais(System.DateTime fechaInicio, System.DateTime fechaFinal, string idPais) {
+        public System.Collections.Generic.List<AplicacionWeb.ProxyHuesped.HuespedBE> obtenerHuespedesPorPais(System.DateTime fechaInicio, System.DateTime fechaFinal, string idPais) {
             return base.Channel.obtenerHuespedesPorPais(fechaInicio, fechaFinal, idPais);
         }
         
-        public System.Threading.Tasks.Task<AplicacionWeb.ProxyHuesped.HuespedBE[]> obtenerHuespedesPorPaisAsync(System.DateTime fechaInicio, System.DateTime fechaFinal, string idPais) {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<AplicacionWeb.ProxyHuesped.HuespedBE>> obtenerHuespedesPorPaisAsync(System.DateTime fechaInicio, System.DateTime fechaFinal, string idPais) {
             return base.Channel.obtenerHuespedesPorPaisAsync(fechaInicio, fechaFinal, idPais);
         }
         

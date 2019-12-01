@@ -191,24 +191,24 @@ namespace AplicacionWeb.ProxyAmbiente {
     public interface IServiceAmbiente {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAmbiente/obtenerAmbienteDisponiblePorFecha", ReplyAction="http://tempuri.org/IServiceAmbiente/obtenerAmbienteDisponiblePorFechaResponse")]
-        AplicacionWeb.ProxyAmbiente.AmbienteBE[] obtenerAmbienteDisponiblePorFecha(System.DateTime fechaInicio, System.DateTime fechaFinal, string idUbigeo);
+        System.Collections.Generic.List<AplicacionWeb.ProxyAmbiente.AmbienteBE> obtenerAmbienteDisponiblePorFecha(System.DateTime fechaInicio, System.DateTime fechaFinal, string idUbigeo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAmbiente/obtenerAmbienteDisponiblePorFecha", ReplyAction="http://tempuri.org/IServiceAmbiente/obtenerAmbienteDisponiblePorFechaResponse")]
-        System.Threading.Tasks.Task<AplicacionWeb.ProxyAmbiente.AmbienteBE[]> obtenerAmbienteDisponiblePorFechaAsync(System.DateTime fechaInicio, System.DateTime fechaFinal, string idUbigeo);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<AplicacionWeb.ProxyAmbiente.AmbienteBE>> obtenerAmbienteDisponiblePorFechaAsync(System.DateTime fechaInicio, System.DateTime fechaFinal, string idUbigeo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAmbiente/obtenerAmbienteDisponiblePorRangoDePrecios", ReplyAction="http://tempuri.org/IServiceAmbiente/obtenerAmbienteDisponiblePorRangoDePreciosRes" +
             "ponse")]
-        AplicacionWeb.ProxyAmbiente.AmbienteBE[] obtenerAmbienteDisponiblePorRangoDePrecios(System.DateTime fechaInicio, System.DateTime fechaFinal, decimal precioMenor, decimal precioMayor, string idUbigeo);
+        System.Collections.Generic.List<AplicacionWeb.ProxyAmbiente.AmbienteBE> obtenerAmbienteDisponiblePorRangoDePrecios(System.DateTime fechaInicio, System.DateTime fechaFinal, decimal precioMenor, decimal precioMayor, string idUbigeo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAmbiente/obtenerAmbienteDisponiblePorRangoDePrecios", ReplyAction="http://tempuri.org/IServiceAmbiente/obtenerAmbienteDisponiblePorRangoDePreciosRes" +
             "ponse")]
-        System.Threading.Tasks.Task<AplicacionWeb.ProxyAmbiente.AmbienteBE[]> obtenerAmbienteDisponiblePorRangoDePreciosAsync(System.DateTime fechaInicio, System.DateTime fechaFinal, decimal precioMenor, decimal precioMayor, string idUbigeo);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<AplicacionWeb.ProxyAmbiente.AmbienteBE>> obtenerAmbienteDisponiblePorRangoDePreciosAsync(System.DateTime fechaInicio, System.DateTime fechaFinal, decimal precioMenor, decimal precioMayor, string idUbigeo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAmbiente/obtenerAmbienteDisponiblePorAforo", ReplyAction="http://tempuri.org/IServiceAmbiente/obtenerAmbienteDisponiblePorAforoResponse")]
-        AplicacionWeb.ProxyAmbiente.AmbienteBE[] obtenerAmbienteDisponiblePorAforo(System.DateTime fechaInicio, System.DateTime fechaFinal, int aforoMenor, int aforoMayor, string idUbigeo);
+        System.Collections.Generic.List<AplicacionWeb.ProxyAmbiente.AmbienteBE> obtenerAmbienteDisponiblePorAforo(System.DateTime fechaInicio, System.DateTime fechaFinal, int aforoMenor, int aforoMayor, string idUbigeo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceAmbiente/obtenerAmbienteDisponiblePorAforo", ReplyAction="http://tempuri.org/IServiceAmbiente/obtenerAmbienteDisponiblePorAforoResponse")]
-        System.Threading.Tasks.Task<AplicacionWeb.ProxyAmbiente.AmbienteBE[]> obtenerAmbienteDisponiblePorAforoAsync(System.DateTime fechaInicio, System.DateTime fechaFinal, int aforoMenor, int aforoMayor, string idUbigeo);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<AplicacionWeb.ProxyAmbiente.AmbienteBE>> obtenerAmbienteDisponiblePorAforoAsync(System.DateTime fechaInicio, System.DateTime fechaFinal, int aforoMenor, int aforoMayor, string idUbigeo);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -238,27 +238,27 @@ namespace AplicacionWeb.ProxyAmbiente {
                 base(binding, remoteAddress) {
         }
         
-        public AplicacionWeb.ProxyAmbiente.AmbienteBE[] obtenerAmbienteDisponiblePorFecha(System.DateTime fechaInicio, System.DateTime fechaFinal, string idUbigeo) {
+        public System.Collections.Generic.List<AplicacionWeb.ProxyAmbiente.AmbienteBE> obtenerAmbienteDisponiblePorFecha(System.DateTime fechaInicio, System.DateTime fechaFinal, string idUbigeo) {
             return base.Channel.obtenerAmbienteDisponiblePorFecha(fechaInicio, fechaFinal, idUbigeo);
         }
         
-        public System.Threading.Tasks.Task<AplicacionWeb.ProxyAmbiente.AmbienteBE[]> obtenerAmbienteDisponiblePorFechaAsync(System.DateTime fechaInicio, System.DateTime fechaFinal, string idUbigeo) {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<AplicacionWeb.ProxyAmbiente.AmbienteBE>> obtenerAmbienteDisponiblePorFechaAsync(System.DateTime fechaInicio, System.DateTime fechaFinal, string idUbigeo) {
             return base.Channel.obtenerAmbienteDisponiblePorFechaAsync(fechaInicio, fechaFinal, idUbigeo);
         }
         
-        public AplicacionWeb.ProxyAmbiente.AmbienteBE[] obtenerAmbienteDisponiblePorRangoDePrecios(System.DateTime fechaInicio, System.DateTime fechaFinal, decimal precioMenor, decimal precioMayor, string idUbigeo) {
+        public System.Collections.Generic.List<AplicacionWeb.ProxyAmbiente.AmbienteBE> obtenerAmbienteDisponiblePorRangoDePrecios(System.DateTime fechaInicio, System.DateTime fechaFinal, decimal precioMenor, decimal precioMayor, string idUbigeo) {
             return base.Channel.obtenerAmbienteDisponiblePorRangoDePrecios(fechaInicio, fechaFinal, precioMenor, precioMayor, idUbigeo);
         }
         
-        public System.Threading.Tasks.Task<AplicacionWeb.ProxyAmbiente.AmbienteBE[]> obtenerAmbienteDisponiblePorRangoDePreciosAsync(System.DateTime fechaInicio, System.DateTime fechaFinal, decimal precioMenor, decimal precioMayor, string idUbigeo) {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<AplicacionWeb.ProxyAmbiente.AmbienteBE>> obtenerAmbienteDisponiblePorRangoDePreciosAsync(System.DateTime fechaInicio, System.DateTime fechaFinal, decimal precioMenor, decimal precioMayor, string idUbigeo) {
             return base.Channel.obtenerAmbienteDisponiblePorRangoDePreciosAsync(fechaInicio, fechaFinal, precioMenor, precioMayor, idUbigeo);
         }
         
-        public AplicacionWeb.ProxyAmbiente.AmbienteBE[] obtenerAmbienteDisponiblePorAforo(System.DateTime fechaInicio, System.DateTime fechaFinal, int aforoMenor, int aforoMayor, string idUbigeo) {
+        public System.Collections.Generic.List<AplicacionWeb.ProxyAmbiente.AmbienteBE> obtenerAmbienteDisponiblePorAforo(System.DateTime fechaInicio, System.DateTime fechaFinal, int aforoMenor, int aforoMayor, string idUbigeo) {
             return base.Channel.obtenerAmbienteDisponiblePorAforo(fechaInicio, fechaFinal, aforoMenor, aforoMayor, idUbigeo);
         }
         
-        public System.Threading.Tasks.Task<AplicacionWeb.ProxyAmbiente.AmbienteBE[]> obtenerAmbienteDisponiblePorAforoAsync(System.DateTime fechaInicio, System.DateTime fechaFinal, int aforoMenor, int aforoMayor, string idUbigeo) {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<AplicacionWeb.ProxyAmbiente.AmbienteBE>> obtenerAmbienteDisponiblePorAforoAsync(System.DateTime fechaInicio, System.DateTime fechaFinal, int aforoMenor, int aforoMayor, string idUbigeo) {
             return base.Channel.obtenerAmbienteDisponiblePorAforoAsync(fechaInicio, fechaFinal, aforoMenor, aforoMayor, idUbigeo);
         }
     }

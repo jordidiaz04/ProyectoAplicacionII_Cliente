@@ -796,6 +796,15 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="Connected Services\ProxyTipoPago\AplicacionWeb.ProxyTipoPago.TipoPagoBE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\ProxyTipoPago\configuration91.svcinfo" />
+    <None Include="Connected Services\ProxyTipoPago\configuration.svcinfo" />
+    <None Include="Connected Services\ProxyTipoPago\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Connected Services\ProxyUbigeo\AplicacionWeb.ProxyUbigeo.DepartamentoBE.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -816,6 +825,16 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ProxyTipoDocumento\service2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyTipoPago\service.wsdl" />
+    <None Include="Connected Services\ProxyTipoPago\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyTipoPago\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyTipoPago\service2.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ProxyUbigeo\configuration91.svcinfo" />
@@ -842,9 +861,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ProxyAmbiente\service2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ProxyReserva\Arrays.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ProxyReserva\service.wsdl" />
@@ -937,6 +953,11 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Connected Services\ProxyTipoDocumento\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ProxyTipoPago\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -1071,6 +1092,7 @@
     <WCFMetadataStorage Include="Connected Services\ProxyHuesped\" />
     <WCFMetadataStorage Include="Connected Services\ProxyReserva\" />
     <WCFMetadataStorage Include="Connected Services\ProxyTipoDocumento\" />
+    <WCFMetadataStorage Include="Connected Services\ProxyTipoPago\" />
     <WCFMetadataStorage Include="Connected Services\ProxyUbigeo\" />
   </ItemGroup>
   <PropertyGroup>

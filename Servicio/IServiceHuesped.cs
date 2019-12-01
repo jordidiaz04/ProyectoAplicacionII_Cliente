@@ -11,6 +11,10 @@ namespace Servicio
     public interface IServiceHuesped
     {
         [OperationContract]
+        HuespedBE obtenerHuesped(String idTipoDoc,
+                                 String numDoc);
+
+        [OperationContract]
         List<HuespedReporteBE> contarHuespedesPorPais(DateTime fechaInicio, 
                                                       DateTime fechaFinal);
 

@@ -7,6 +7,12 @@
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="IServiceHuesped_obtenerHuesped_InputMessage">
+    <wsdl:part name="parameters" element="tns:obtenerHuesped" />
+  </wsdl:message>
+  <wsdl:message name="IServiceHuesped_obtenerHuesped_OutputMessage">
+    <wsdl:part name="parameters" element="tns:obtenerHuespedResponse" />
+  </wsdl:message>
   <wsdl:message name="IServiceHuesped_contarHuespedesPorPais_InputMessage">
     <wsdl:part name="parameters" element="tns:contarHuespedesPorPais" />
   </wsdl:message>
@@ -32,6 +38,10 @@
     <wsdl:part name="parameters" element="tns:registrarHuespedResponse" />
   </wsdl:message>
   <wsdl:portType name="IServiceHuesped">
+    <wsdl:operation name="obtenerHuesped">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceHuesped/obtenerHuesped" message="tns:IServiceHuesped_obtenerHuesped_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceHuesped/obtenerHuespedResponse" message="tns:IServiceHuesped_obtenerHuesped_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="contarHuespedesPorPais">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceHuesped/contarHuespedesPorPais" message="tns:IServiceHuesped_contarHuespedesPorPais_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceHuesped/contarHuespedesPorPaisResponse" message="tns:IServiceHuesped_contarHuespedesPorPais_OutputMessage" />
@@ -51,6 +61,15 @@
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IServiceHuesped" type="tns:IServiceHuesped">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="obtenerHuesped">
+      <soap:operation soapAction="http://tempuri.org/IServiceHuesped/obtenerHuesped" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="contarHuespedesPorPais">
       <soap:operation soapAction="http://tempuri.org/IServiceHuesped/contarHuespedesPorPais" style="document" />
       <wsdl:input>

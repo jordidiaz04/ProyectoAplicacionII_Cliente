@@ -9,7 +9,7 @@ namespace Servicio
 {
     public class ServiceReserva : IServiceReserva
     {
-        public List<ReservaBE> listarReservasPorHuesped(String idTipoDoc, 
+        public List<ReservaBE> listarReservasPorHuesped(String idTipoDoc,
                                                         String numDoc,
                                                         DateTime fechaInicio,
                                                         DateTime fechaFinal)
@@ -133,46 +133,63 @@ namespace Servicio
             }
         }
 
-        public bool registrarReserva(DateTime fechaIngreso,
-                                     DateTime fechaSalida,
-                                     Int32 idTipoPago,
-                                     Decimal monto,
-                                     List<Int32> lstIdsAmbiente,
-                                     List<Int32> lstIdsHuesped)
+        public Boolean registrarReserva(List<HuespedBE> lstHuespedBE,
+                                        List<AmbienteBE> lstAmbienteBE,
+                                        DateTime fechaInicio,
+                                        DateTime fechaSalida,
+                                        Int32 idTipoPago,
+                                        Decimal monto)
         {
             using (HospedajeEntities entity = new HospedajeEntities())
             {
-                try
+                using(var dbTransaction = entity.Database.BeginTransaction())
                 {
-                    Reserva reserva = new Reserva()
+                    try
                     {
-                        fechaIngreso = fechaIngreso,
-                        fechaSalida = fechaSalida,
-                        idTipoPago = idTipoPago,
-                        monto = monto,
-                        estado = true
-                    };
-                    entity.Reserva.Add(reserva);
-                    entity.SaveChanges();
-
-                    for (int i = 0; i < lstIdsAmbiente.Count; i++)
-                    {
-                        ReservaDetalle reservaDetalle = new ReservaDetalle()
+                        Reserva reserva = new Reserva()
                         {
-                            idReserva = reserva.id,
-                            idAmbiente = lstIdsAmbiente[i],
+                            fechaIngreso = fechaInicio,
+                            fechaSalida = fechaSalida,
+                            idTipoPago = idTipoPago,
+                            monto = monto,
                             estado = true
                         };
-                        entity.ReservaDetalle.Add(reservaDetalle);
+                        entity.Reserva.Add(reserva);
                         entity.SaveChanges();
-                    }
 
-                    return true;
-                }
-                catch (Exception ex)
-                {
-                    return false;
-                    throw ex;
+                        for (int i = 0; i < lstAmbienteBE.Count; i++)
+                        {
+                            ReservaDetalle reservaDetalle = new ReservaDetalle()
+                            {
+                                idReserva = reserva.id,
+                                idAmbiente = lstAmbienteBE[i].IdAmbiente,
+                                estado = true
+                            };
+                            entity.ReservaDetalle.Add(reservaDetalle);
+                            entity.SaveChanges();
+                        }
+
+                        for (int i = 0; i < lstHuespedBE.Count; i++)
+                        {
+                            ReservaHuesped reservaHuesped = new ReservaHuesped()
+                            {
+                                idReserva = reserva.id,
+                                idHuesped = lstHuespedBE[i].Id,
+                                estado = true
+                            };
+                            entity.ReservaHuesped.Add(reservaHuesped);
+                            entity.SaveChanges();
+                        }
+
+                        dbTransaction.Commit();
+                        return true;
+                    }
+                    catch (Exception ex)
+                    {
+                        dbTransaction.Rollback();
+                        return false;
+                        throw ex;
+                    }
                 }
             }
         }

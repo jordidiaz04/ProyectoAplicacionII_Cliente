@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import namespace="http://schemas.datacontract.org/2004/07/" />
-  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:element name="listarReservasPorHuesped">
     <xs:complexType>
       <xs:sequence>
@@ -38,12 +37,12 @@
   <xs:element name="registrarReserva">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="fechaIngreso" type="xs:dateTime" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="lstHuespedBE" nillable="true" type="q3:ArrayOfHuespedBE" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="lstAmbienteBE" nillable="true" type="q4:ArrayOfAmbienteBE" />
+        <xs:element minOccurs="0" name="fechaInicio" type="xs:dateTime" />
         <xs:element minOccurs="0" name="fechaSalida" type="xs:dateTime" />
         <xs:element minOccurs="0" name="idTipoPago" type="xs:int" />
         <xs:element minOccurs="0" name="monto" type="xs:decimal" />
-        <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="lstIdsAmbiente" nillable="true" type="q3:ArrayOfint" />
-        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="lstIdsHuesped" nillable="true" type="q4:ArrayOfint" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

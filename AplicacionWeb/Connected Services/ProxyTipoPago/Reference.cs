@@ -8,16 +8,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AplicacionWeb.ProxyTipoDocumento {
+namespace AplicacionWeb.ProxyTipoPago {
     using System.Runtime.Serialization;
     using System;
     
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="TipoDocumentoBE", Namespace="http://schemas.datacontract.org/2004/07/")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TipoPagoBE", Namespace="http://schemas.datacontract.org/2004/07/")]
     [System.SerializableAttribute()]
-    public partial class TipoDocumentoBE : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class TipoPagoBE : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -26,7 +26,7 @@ namespace AplicacionWeb.ProxyTipoDocumento {
         private string DescripcionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string IdField;
+        private int IdField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -52,12 +52,12 @@ namespace AplicacionWeb.ProxyTipoDocumento {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Id {
+        public int Id {
             get {
                 return this.IdField;
             }
             set {
-                if ((object.ReferenceEquals(this.IdField, value) != true)) {
+                if ((this.IdField.Equals(value) != true)) {
                     this.IdField = value;
                     this.RaisePropertyChanged("Id");
                 }
@@ -75,49 +75,49 @@ namespace AplicacionWeb.ProxyTipoDocumento {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ProxyTipoDocumento.IServiceTipoDocumento")]
-    public interface IServiceTipoDocumento {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ProxyTipoPago.IServiceTipoPago")]
+    public interface IServiceTipoPago {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceTipoDocumento/listarTiposDocumento", ReplyAction="http://tempuri.org/IServiceTipoDocumento/listarTiposDocumentoResponse")]
-        System.Collections.Generic.List<AplicacionWeb.ProxyTipoDocumento.TipoDocumentoBE> listarTiposDocumento();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceTipoPago/obtenerTiposPago", ReplyAction="http://tempuri.org/IServiceTipoPago/obtenerTiposPagoResponse")]
+        AplicacionWeb.ProxyTipoPago.TipoPagoBE[] obtenerTiposPago();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceTipoDocumento/listarTiposDocumento", ReplyAction="http://tempuri.org/IServiceTipoDocumento/listarTiposDocumentoResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<AplicacionWeb.ProxyTipoDocumento.TipoDocumentoBE>> listarTiposDocumentoAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceTipoPago/obtenerTiposPago", ReplyAction="http://tempuri.org/IServiceTipoPago/obtenerTiposPagoResponse")]
+        System.Threading.Tasks.Task<AplicacionWeb.ProxyTipoPago.TipoPagoBE[]> obtenerTiposPagoAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IServiceTipoDocumentoChannel : AplicacionWeb.ProxyTipoDocumento.IServiceTipoDocumento, System.ServiceModel.IClientChannel {
+    public interface IServiceTipoPagoChannel : AplicacionWeb.ProxyTipoPago.IServiceTipoPago, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ServiceTipoDocumentoClient : System.ServiceModel.ClientBase<AplicacionWeb.ProxyTipoDocumento.IServiceTipoDocumento>, AplicacionWeb.ProxyTipoDocumento.IServiceTipoDocumento {
+    public partial class ServiceTipoPagoClient : System.ServiceModel.ClientBase<AplicacionWeb.ProxyTipoPago.IServiceTipoPago>, AplicacionWeb.ProxyTipoPago.IServiceTipoPago {
         
-        public ServiceTipoDocumentoClient() {
+        public ServiceTipoPagoClient() {
         }
         
-        public ServiceTipoDocumentoClient(string endpointConfigurationName) : 
+        public ServiceTipoPagoClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public ServiceTipoDocumentoClient(string endpointConfigurationName, string remoteAddress) : 
+        public ServiceTipoPagoClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public ServiceTipoDocumentoClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public ServiceTipoPagoClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public ServiceTipoDocumentoClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public ServiceTipoPagoClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         
-        public System.Collections.Generic.List<AplicacionWeb.ProxyTipoDocumento.TipoDocumentoBE> listarTiposDocumento() {
-            return base.Channel.listarTiposDocumento();
+        public AplicacionWeb.ProxyTipoPago.TipoPagoBE[] obtenerTiposPago() {
+            return base.Channel.obtenerTiposPago();
         }
         
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<AplicacionWeb.ProxyTipoDocumento.TipoDocumentoBE>> listarTiposDocumentoAsync() {
-            return base.Channel.listarTiposDocumentoAsync();
+        public System.Threading.Tasks.Task<AplicacionWeb.ProxyTipoPago.TipoPagoBE[]> obtenerTiposPagoAsync() {
+            return base.Channel.obtenerTiposPagoAsync();
         }
     }
 }

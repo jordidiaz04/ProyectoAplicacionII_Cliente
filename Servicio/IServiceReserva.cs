@@ -22,12 +22,12 @@ namespace Servicio
                                                String idUbigeo);
 
         [OperationContract]
-        Boolean registrarReserva(DateTime fechaIngreso,
+        Boolean registrarReserva(List<HuespedBE> lstHuespedBE,
+                                 List<AmbienteBE> lstAmbienteBE,
+                                 DateTime fechaInicio,
                                  DateTime fechaSalida,
                                  Int32 idTipoPago,
-                                 Decimal monto,
-                                 List<Int32> lstIdsAmbiente,
-                                 List<Int32> lstIdsHuesped);
+                                 Decimal monto);
     }
 }
 

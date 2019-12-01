@@ -9,6 +9,32 @@ namespace Servicio
 {
     public class ServiceHuesped : IServiceHuesped
     {
+        public HuespedBE obtenerHuesped(String idTipoDoc,
+                                        String numDoc)
+        {
+            using (HospedajeEntities entity = new HospedajeEntities())
+            {
+                try
+                {
+                    HuespedBE objHuespedBE = new HuespedBE();
+                    var huesped = (from item in entity.Huesped
+                                   where item.idTipoDoc == idTipoDoc &&
+                                         item.numDoc == numDoc
+                                   select item).FirstOrDefault();
+
+                    objHuespedBE.Id = huesped.id;
+                    objHuespedBE.Nombre = huesped.nombre;
+                    objHuespedBE.Pais = huesped.Pais.ubicacion;
+
+                    return objHuespedBE;
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
+        }
+
         public List<HuespedReporteBE> contarHuespedesPorPais(DateTime fechaInicio,
                                                              DateTime fechaFinal)
         {

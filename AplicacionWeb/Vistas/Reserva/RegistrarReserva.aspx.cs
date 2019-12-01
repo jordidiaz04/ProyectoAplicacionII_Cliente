@@ -9,10 +9,51 @@ namespace AplicacionWeb.Vistas.Reserva
 {
     public partial class RegistrarReserva : System.Web.UI.Page
     {
+        private ProxyTipoPago.ServiceTipoPagoClient serviceTipoPago = new ProxyTipoPago.ServiceTipoPagoClient();
+        private ProxyTipoDocumento.ServiceTipoDocumentoClient serviceTipoDocumento = new ProxyTipoDocumento.ServiceTipoDocumentoClient();
+        private ProxyHuesped.ServiceHuespedClient serviceHuesped = new ProxyHuesped.ServiceHuespedClient();
         private ProxyAmbiente.ServiceAmbienteClient serviceAmbiente = new ProxyAmbiente.ServiceAmbienteClient();
         private ProxyUbigeo.ServiceUbigeoClient serviceUbigeo = new ProxyUbigeo.ServiceUbigeoClient();
-        private String firstDay = "01/" + DateTime.Today.Month + "/" + DateTime.Today.Year;
+        private ProxyReserva.ServiceReservaClient serviceReserva = new ProxyReserva.ServiceReservaClient();
+        private String firstDay = "1/" + DateTime.Today.Month + "/" + DateTime.Today.Year;
         private String today = DateTime.Today.ToShortDateString();
+
+        private void loadTipoPago()
+        {
+            cboTipoPago.DataSource = serviceTipoPago.obtenerTiposPago();
+            cboTipoPago.DataValueField = "Id";
+            cboTipoPago.DataTextField = "Descripcion";
+            cboTipoPago.DataBind();
+        }
+
+        private void loadTipoDocumento(String idTipoDoc)
+        {
+            cboTipoDocumento.DataSource = serviceTipoDocumento.listarTiposDocumento();
+            cboTipoDocumento.DataValueField = "Id";
+            cboTipoDocumento.DataTextField = "Descripcion";
+            cboTipoDocumento.DataBind();
+
+            cboTipoDocumento.SelectedValue = idTipoDoc;
+        }
+
+        private void setMaxLengthDocumento()
+        {
+            String id = cboTipoDocumento.SelectedValue.ToString();
+            switch (id)
+            {
+                case "1":
+                    txtDocumento.MaxLength = 8;
+                    break;
+                case "6":
+                    txtDocumento.MaxLength = 11;
+                    break;
+                default:
+                    txtDocumento.MaxLength = 15;
+                    break;
+            }
+
+            txtNombre.Text = "";
+        }
 
         private void loadUbigeo(String idDepa, String idProv, String idDist)
         {
@@ -65,7 +106,7 @@ namespace AplicacionWeb.Vistas.Reserva
             DateTime fecSal = Convert.ToDateTime(txtFecSal.Text.Trim());
             String idUbig = cboDepartamento.SelectedValue + cboProvincia.SelectedValue + cboDistrito.SelectedValue;
 
-            ProxyAmbiente.AmbienteBE[] lstAmbiente = serviceAmbiente.obtenerAmbienteDisponiblePorFecha(fecIng, fecSal, idUbig);
+            List<ProxyAmbiente.AmbienteBE> lstAmbiente = serviceAmbiente.obtenerAmbienteDisponiblePorFecha(fecIng, fecSal, idUbig);
             Session["lstAmbiente"] = lstAmbiente;
             List<ProxyAmbiente.AmbienteBE> lstTemporal = new List<ProxyAmbiente.AmbienteBE>();
 
@@ -92,8 +133,8 @@ namespace AplicacionWeb.Vistas.Reserva
             cboAmbiente.DataValueField = "IdAmbiente";
             cboAmbiente.DataBind();
 
-            if (cboAmbiente.Items.Count > 0) { cboAmbiente.SelectedIndex = 0; btnRegistrar.Enabled = true; }
-            else { btnRegistrar.Enabled = false; btnRegistrar.CssClass = "btn btn-primary shadow-primary px-5"; }
+            if (cboAmbiente.Items.Count > 0) { cboAmbiente.SelectedIndex = 0; btnGuardar.Enabled = true; }
+            else { btnGuardar.Enabled = false; btnGuardar.CssClass = "btn btn-success shadow-success px-5"; }
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -105,14 +146,81 @@ namespace AplicacionWeb.Vistas.Reserva
                     txtFecIng.Text = firstDay;
                     txtFecSal.Text = today;
                     lblMensajeError.Text = "";
+                    loadTipoPago();
                     loadUbigeo("15", "01", "01");
                     loadTipoAmbiente();
                     loadAmbiente(1);
+                    loadTipoDocumento("1");
+                    setMaxLengthDocumento();
+                    panelDatos.Visible = false;
                 }
                 catch (Exception ex)
                 {
                     lblMensajeError.Text = "Error: " + ex.Message;
                 }
+            }
+        }
+
+        protected void cboTipoDocumento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                setMaxLengthDocumento();
+            }
+            catch (Exception ex)
+            {
+                lblMensajeError.Text = "Error: " + ex.Message;
+            }
+        }
+
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                String idTipoDoc = cboTipoDocumento.SelectedValue.ToString();
+                String numDoc = txtDocumento.Text.Trim();
+                
+                if (numDoc != "")
+                {
+                    ProxyHuesped.HuespedBE huespedBE = serviceHuesped.obtenerHuesped(idTipoDoc, numDoc);
+                    txtIdHuesped.Text = huespedBE.Id.ToString();
+                    txtNombre.Text = huespedBE.Nombre;
+                    txtPais.Text = huespedBE.Pais;
+                }
+                lblMensajeError.Text = "";
+            }
+            catch (Exception ex)
+            {
+                lblMensajeError.Text = "Error: " + ex.Message;
+            }
+        }
+
+        protected void btnAgregarHuesped_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                List<ProxyHuesped.HuespedBE> lstHuespedBE = (List<ProxyHuesped.HuespedBE>)Session["lstHuespedBE"];
+                if (lstHuespedBE == null) lstHuespedBE = new List<ProxyHuesped.HuespedBE>();
+
+                ProxyHuesped.HuespedBE huespedBE = new ProxyHuesped.HuespedBE()
+                {
+                    Id = Convert.ToInt32(txtIdHuesped.Text.Trim()),
+                    Nombre = txtNombre.Text.Trim(),
+                    Pais = txtPais.Text.Trim()
+                };
+                int index = lstHuespedBE.FindIndex(f => f.Id == huespedBE.Id);
+                if (index < 0) lstHuespedBE.Add(huespedBE);
+                Session["lstHuespedBE"] = lstHuespedBE;
+
+                gvHuespedes.DataSource = lstHuespedBE;
+                gvHuespedes.DataBind();
+
+                txtDocumento.Text = "";
+                txtNombre.Text = "";
+            }
+            catch (Exception ex)
+            {
+                lblMensajeError.Text = "Error: " + ex.Message;
             }
         }
 
@@ -157,26 +265,38 @@ namespace AplicacionWeb.Vistas.Reserva
         {
             try
             {
-                List<ProxyAmbiente.AmbienteBE> lstAmbienteRegistrados = new List<ProxyAmbiente.AmbienteBE>();
-                var lstAmbiente = (ProxyAmbiente.AmbienteBE[])Session["lstAmbiente"];
+                if (IsPostBack)
+                {
+                    List<ProxyAmbiente.AmbienteBE> lstAmbienteRegistrados = (List<ProxyAmbiente.AmbienteBE>)Session["lstAmbienteRegistrados"];
+                    var lstAmbiente = (List<ProxyAmbiente.AmbienteBE>)Session["lstAmbiente"];
 
-                ProxyAmbiente.AmbienteBE ambienteBE = new ProxyAmbiente.AmbienteBE();
-                ambienteBE.IdAmbiente = Convert.ToInt32(cboAmbiente.SelectedValue.ToString());
-                ambienteBE.Distrito = cboDistrito.SelectedItem.Text;
-                ambienteBE.Direccion = (from item in lstAmbiente
-                                        where item.IdAmbiente == ambienteBE.IdAmbiente
-                                        select item.Direccion).FirstOrDefault();
-                ambienteBE.Identificador = cboAmbiente.SelectedItem.Text;
-                ambienteBE.Precio = (from item in lstAmbiente
-                                     where item.IdAmbiente == ambienteBE.IdAmbiente
-                                     select item.Precio).FirstOrDefault();
-                TimeSpan ts = Convert.ToDateTime(txtFecSal.Text.Trim()) - Convert.ToDateTime(txtFecIng.Text.Trim());
-                Int32 days = (Int32)Math.Abs(Math.Round(ts.TotalDays));
-                ambienteBE.Monto = ambienteBE.Precio * days;
+                    ProxyAmbiente.AmbienteBE ambienteBE = new ProxyAmbiente.AmbienteBE();
+                    ambienteBE.IdAmbiente = Convert.ToInt32(cboAmbiente.SelectedValue.ToString());
+                    ambienteBE.Distrito = cboDistrito.SelectedItem.Text;
+                    ambienteBE.Direccion = (from item in lstAmbiente
+                                            where item.IdAmbiente == ambienteBE.IdAmbiente
+                                            select item.Direccion).FirstOrDefault();
+                    ambienteBE.Identificador = cboAmbiente.SelectedItem.Text;
+                    ambienteBE.Precio = (from item in lstAmbiente
+                                         where item.IdAmbiente == ambienteBE.IdAmbiente
+                                         select item.Precio).FirstOrDefault();
+                    TimeSpan ts = Convert.ToDateTime(txtFecSal.Text.Trim()) - Convert.ToDateTime(txtFecIng.Text.Trim());
+                    Int32 days = (Int32)Math.Abs(Math.Round(ts.TotalDays)) + 1;
+                    ambienteBE.Monto = ambienteBE.Precio * days;
 
-                lstAmbienteRegistrados.Add(ambienteBE);
-                gvAmbientes.DataSource = lstAmbienteRegistrados;
-                gvAmbientes.DataBind();
+                    if (lstAmbienteRegistrados == null) { lstAmbienteRegistrados = new List<ProxyAmbiente.AmbienteBE>(); }
+                    int index = lstAmbienteRegistrados.FindIndex(f => f.IdAmbiente == ambienteBE.IdAmbiente);
+                    if (index < 0) lstAmbienteRegistrados.Add(ambienteBE);
+
+                    Session["lstAmbienteRegistrados"] = lstAmbienteRegistrados;
+                    Session["Monto"] = (Session["Monto"] == null ? 0 : Convert.ToDecimal(Session["Monto"])) + ambienteBE.Monto;
+                    gvAmbientes.DataSource = lstAmbienteRegistrados;
+                    gvAmbientes.DataBind();
+                    txtMonto.Text = Convert.ToDecimal(Session["Monto"]).ToString("#.00");
+                    lblMensajeError.Text = "";
+
+                    panelDatos.Visible = true;
+                }
             }
             catch (Exception ex)
             {
@@ -184,10 +304,59 @@ namespace AplicacionWeb.Vistas.Reserva
             }
         }
 
-        protected void btnRegistrar_Click(object sender, EventArgs e)
+        protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            ProxyReserva.ReservaBE reservaBE = new ProxyReserva.ReservaBE();
+            try
+            {
+                List<ProxyHuesped.HuespedBE> lstHuespedBE = (List<ProxyHuesped.HuespedBE>)Session["lstHuespedBE"];
+                List<ProxyAmbiente.AmbienteBE> lstAmbienteBE = (List<ProxyAmbiente.AmbienteBE>)Session["lstAmbienteRegistrados"];
+                DateTime fechaInicio = Convert.ToDateTime(txtFecIng.Text.Trim());
+                DateTime fechaSalida = Convert.ToDateTime(txtFecSal.Text.Trim());
+                Int32 idTipoPago = Convert.ToInt32(cboTipoPago.SelectedValue.Trim());
+                Decimal monto = txtMonto.Text.Trim() == "" ? 0 : Convert.ToDecimal(txtMonto.Text.Trim());
 
+                List<ProxyReserva.HuespedBE> lstHuesped = new List<ProxyReserva.HuespedBE>();
+                List<ProxyReserva.AmbienteBE> lstAmbiente = new List<ProxyReserva.AmbienteBE>();
+                foreach (var item in lstHuespedBE)
+                {
+                    ProxyReserva.HuespedBE huesped = new ProxyReserva.HuespedBE()
+                    {
+                        Id = item.Id,
+                    };
+                    lstHuesped.Add(huesped);
+                }
+                foreach (var item in lstAmbienteBE)
+                {
+                    ProxyReserva.AmbienteBE ambiente = new ProxyReserva.AmbienteBE()
+                    {
+                        IdAmbiente = item.IdAmbiente
+                    };
+                    lstAmbiente.Add(ambiente);
+                }
+
+                if (lstHuespedBE != null && lstAmbienteBE != null && txtFecIng.Text.Trim() != "" && txtFecSal.Text.Trim() != "" && monto > 0)
+                {
+                    if (serviceReserva.registrarReserva(lstHuesped, lstAmbiente, fechaInicio, fechaSalida, idTipoPago, monto))
+                    {
+                        txtMonto.Text = "";
+                        Session["lstHuespedBE"] = null;
+                        Session["lstAmbienteRegistrados"] = null;
+                        gvHuespedes.DataSource = null;
+                        gvHuespedes.DataBind();
+                        gvAmbientes.DataSource = null;
+                        gvAmbientes.DataBind();
+                        lblMensajeError.Text = "Usuario registrado";
+                    }
+                    else
+                    {
+                        lblMensajeError.Text = "No se pudo completar el registro!";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                lblMensajeError.Text = "Error: " + ex.Message;
+            }
         }
     }
 }

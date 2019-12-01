@@ -262,28 +262,28 @@ namespace AplicacionWeb.ProxyUbigeo {
     public interface IServiceUbigeo {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceUbigeo/obtenerPaises", ReplyAction="http://tempuri.org/IServiceUbigeo/obtenerPaisesResponse")]
-        AplicacionWeb.ProxyUbigeo.PaisBE[] obtenerPaises();
+        System.Collections.Generic.List<AplicacionWeb.ProxyUbigeo.PaisBE> obtenerPaises();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceUbigeo/obtenerPaises", ReplyAction="http://tempuri.org/IServiceUbigeo/obtenerPaisesResponse")]
-        System.Threading.Tasks.Task<AplicacionWeb.ProxyUbigeo.PaisBE[]> obtenerPaisesAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.List<AplicacionWeb.ProxyUbigeo.PaisBE>> obtenerPaisesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceUbigeo/obtenerDepartamentos", ReplyAction="http://tempuri.org/IServiceUbigeo/obtenerDepartamentosResponse")]
-        AplicacionWeb.ProxyUbigeo.DepartamentoBE[] obtenerDepartamentos();
+        System.Collections.Generic.List<AplicacionWeb.ProxyUbigeo.DepartamentoBE> obtenerDepartamentos();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceUbigeo/obtenerDepartamentos", ReplyAction="http://tempuri.org/IServiceUbigeo/obtenerDepartamentosResponse")]
-        System.Threading.Tasks.Task<AplicacionWeb.ProxyUbigeo.DepartamentoBE[]> obtenerDepartamentosAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.List<AplicacionWeb.ProxyUbigeo.DepartamentoBE>> obtenerDepartamentosAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceUbigeo/obtenerProvincias", ReplyAction="http://tempuri.org/IServiceUbigeo/obtenerProvinciasResponse")]
-        AplicacionWeb.ProxyUbigeo.ProvinciaBE[] obtenerProvincias(string idDepartamento);
+        System.Collections.Generic.List<AplicacionWeb.ProxyUbigeo.ProvinciaBE> obtenerProvincias(string idDepartamento);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceUbigeo/obtenerProvincias", ReplyAction="http://tempuri.org/IServiceUbigeo/obtenerProvinciasResponse")]
-        System.Threading.Tasks.Task<AplicacionWeb.ProxyUbigeo.ProvinciaBE[]> obtenerProvinciasAsync(string idDepartamento);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<AplicacionWeb.ProxyUbigeo.ProvinciaBE>> obtenerProvinciasAsync(string idDepartamento);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceUbigeo/obtenerDistritos", ReplyAction="http://tempuri.org/IServiceUbigeo/obtenerDistritosResponse")]
-        AplicacionWeb.ProxyUbigeo.DistritoBE[] obtenerDistritos(string idDepartamento, string idProvincia);
+        System.Collections.Generic.List<AplicacionWeb.ProxyUbigeo.DistritoBE> obtenerDistritos(string idDepartamento, string idProvincia);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceUbigeo/obtenerDistritos", ReplyAction="http://tempuri.org/IServiceUbigeo/obtenerDistritosResponse")]
-        System.Threading.Tasks.Task<AplicacionWeb.ProxyUbigeo.DistritoBE[]> obtenerDistritosAsync(string idDepartamento, string idProvincia);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<AplicacionWeb.ProxyUbigeo.DistritoBE>> obtenerDistritosAsync(string idDepartamento, string idProvincia);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -313,35 +313,35 @@ namespace AplicacionWeb.ProxyUbigeo {
                 base(binding, remoteAddress) {
         }
         
-        public AplicacionWeb.ProxyUbigeo.PaisBE[] obtenerPaises() {
+        public System.Collections.Generic.List<AplicacionWeb.ProxyUbigeo.PaisBE> obtenerPaises() {
             return base.Channel.obtenerPaises();
         }
         
-        public System.Threading.Tasks.Task<AplicacionWeb.ProxyUbigeo.PaisBE[]> obtenerPaisesAsync() {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<AplicacionWeb.ProxyUbigeo.PaisBE>> obtenerPaisesAsync() {
             return base.Channel.obtenerPaisesAsync();
         }
         
-        public AplicacionWeb.ProxyUbigeo.DepartamentoBE[] obtenerDepartamentos() {
+        public System.Collections.Generic.List<AplicacionWeb.ProxyUbigeo.DepartamentoBE> obtenerDepartamentos() {
             return base.Channel.obtenerDepartamentos();
         }
         
-        public System.Threading.Tasks.Task<AplicacionWeb.ProxyUbigeo.DepartamentoBE[]> obtenerDepartamentosAsync() {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<AplicacionWeb.ProxyUbigeo.DepartamentoBE>> obtenerDepartamentosAsync() {
             return base.Channel.obtenerDepartamentosAsync();
         }
         
-        public AplicacionWeb.ProxyUbigeo.ProvinciaBE[] obtenerProvincias(string idDepartamento) {
+        public System.Collections.Generic.List<AplicacionWeb.ProxyUbigeo.ProvinciaBE> obtenerProvincias(string idDepartamento) {
             return base.Channel.obtenerProvincias(idDepartamento);
         }
         
-        public System.Threading.Tasks.Task<AplicacionWeb.ProxyUbigeo.ProvinciaBE[]> obtenerProvinciasAsync(string idDepartamento) {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<AplicacionWeb.ProxyUbigeo.ProvinciaBE>> obtenerProvinciasAsync(string idDepartamento) {
             return base.Channel.obtenerProvinciasAsync(idDepartamento);
         }
         
-        public AplicacionWeb.ProxyUbigeo.DistritoBE[] obtenerDistritos(string idDepartamento, string idProvincia) {
+        public System.Collections.Generic.List<AplicacionWeb.ProxyUbigeo.DistritoBE> obtenerDistritos(string idDepartamento, string idProvincia) {
             return base.Channel.obtenerDistritos(idDepartamento, idProvincia);
         }
         
-        public System.Threading.Tasks.Task<AplicacionWeb.ProxyUbigeo.DistritoBE[]> obtenerDistritosAsync(string idDepartamento, string idProvincia) {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<AplicacionWeb.ProxyUbigeo.DistritoBE>> obtenerDistritosAsync(string idDepartamento, string idProvincia) {
             return base.Channel.obtenerDistritosAsync(idDepartamento, idProvincia);
         }
     }

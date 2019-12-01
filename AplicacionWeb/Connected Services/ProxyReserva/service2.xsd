@@ -37,4 +37,30 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="HuespedBE" nillable="true" type="tns:HuespedBE" />
+  <xs:complexType name="ArrayOfHuespedBE">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HuespedBE" nillable="true" type="tns:HuespedBE" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHuespedBE" nillable="true" type="tns:ArrayOfHuespedBE" />
+  <xs:complexType name="ArrayOfAmbienteBE">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AmbienteBE" nillable="true" type="tns:AmbienteBE" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAmbienteBE" nillable="true" type="tns:ArrayOfAmbienteBE" />
+  <xs:complexType name="AmbienteBE">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Aforo" type="xs:int" />
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Direccion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Distrito" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdAmbiente" type="xs:int" />
+      <xs:element minOccurs="0" name="Identificador" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Monto" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Piso" type="xs:int" />
+      <xs:element minOccurs="0" name="Precio" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AmbienteBE" nillable="true" type="tns:AmbienteBE" />
 </xs:schema>
